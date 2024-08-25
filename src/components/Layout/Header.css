@@ -1,0 +1,17 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 80px;
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+
+    background: linear-gradient(90.18deg, #2BCAFC 0%, #60F5FF 50%, #81EFDB 100%);
+    box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.1);
+}
