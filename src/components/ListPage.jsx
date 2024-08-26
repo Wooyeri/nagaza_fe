@@ -59,8 +59,8 @@ export default function ListPage(){
                 <input type="text" value={search} placeholder="Search..." onChange={(e) => {setSearch(e.target.value)}} style={{width: '80%', fontSize: '20px', border: 'none', margin: '0 3%'}} />
             </div>
             <div className="sort-area" style={{width: '100%', display: 'flex', justifyContent: 'right', margin: '50px 0'}}>
-                <div style={{ position: 'relative', display: 'inline-block', margin: '0 30px'}}>
-                    <div className="sort" onClick={() => {setSpreadSort(!spreadSort)}} style={{width: '100px', border: '2px solid #CBD2E0', borderRadius: '6px', padding: '10px', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', cursor: 'pointer'}}>
+                <div style={{ position: 'relative', display: 'inline-block', margin: '0 15%'}}>
+                    <div className="sort-btn" onClick={() => {setSpreadSort(!spreadSort)}}>
                         <div>정렬 기준</div> <img className={`arrow-btn ${spreadSort ? 'open' : ''}`} src={underArrow} />
                     </div>
                     <div style={{position: 'absolute', top: '110%', left: '50%', transform: 'translateX(-50%)', zIndex: 1, backgroundColor: 'white', width:'120px', border: '2px solid #CBD2E0',borderRadius: '5px'}} hidden={spreadSort ? false : true}>

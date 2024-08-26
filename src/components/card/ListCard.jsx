@@ -10,6 +10,7 @@ export default function ListCard({likes, title, poster_url, location, rating, em
         display: 'flex',
         padding: '15px 0',
         width: "400px",
+        minHeight: "410px",
         boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2)",
         borderRadius: "10px",
         textAlign: 'center',
