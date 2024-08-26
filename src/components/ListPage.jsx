@@ -73,7 +73,7 @@ export default function ListPage(){
             </div>
             <div className="card-list">
                 {testData.map( (hotel, idx) => 
-                    <ListCard key={idx} likes={hotel.likes} title={hotel.title} poster_url={hotel.poster_url} location={hotel.location} rating={hotel.rating} emotion_rating={Number(hotel.emotion_rating)} ai_review={true}/>
+                    <ListCard key={idx} likes={hotel.likes} title={hotel.title} poster_url={hotel.poster_url} location={hotel.location} rating={hotel.rating} emotion_rating={Number(hotel.emotion_rating)} ai_review={JSON.parse(hotel.ai_review)}/>
                 )}
             </div>
         </div>

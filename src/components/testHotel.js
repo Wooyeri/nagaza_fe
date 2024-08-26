@@ -5,7 +5,8 @@ export const testData = [
         "poster_url": "https://image.goodchoice.kr/affiliate/2024/03/11/65eec572af91e.jpg",
         "location": "서울 중구",
         "rating": "4.9",
-        "emotion_rating": "97"
+        "emotion_rating": "97",
+        "ai_review": "true"
     },
     {
         "likes": "23",
@@ -13,7 +14,8 @@ export const testData = [
         "location": "서울 강동구",
         "poster_url": "https://image.goodchoice.kr/adimg_new/895/215496/e9e6c915d863b2f30d51805c2e81cc81.jpg",
         "rating": "4.9",
-        "emotion_rating": "56"
+        "emotion_rating": "56",
+        "ai_review": "false"
     },
     {
         "likes": "54",
@@ -21,7 +23,8 @@ export const testData = [
         "location": "서울 종로구",
         "poster_url": "https://image.goodchoice.kr/adimg_new/1742/104937/a6a12c63b7b24ad6b5f91366fc69829d.jpg",
         "rating": "4.2",
-        "emotion_rating": "73"
+        "emotion_rating": "73",
+        "ai_review": "true"
     },
     {
         "likes": "33",
@@ -29,7 +32,8 @@ export const testData = [
         "location": "서울 영등포구",
         "poster_url": "https://image.goodchoice.kr/adimg_new/844/524245/ea9c450caf813674d66fa972a1901ab2.jpg",
         "rating": "3.3",
-        "emotion_rating": "33"
+        "emotion_rating": "33",
+        "ai_review": "true"
     },
     {
         "likes": "8",
@@ -37,7 +41,8 @@ export const testData = [
         "location": "서울 서대문구",
         "poster_url": "https://image.goodchoice.kr/adimg_new/1777/542660/0efc91ca4d9957309e781db9e0c308a5.jpg",
         "rating": "3.7",
-        "emotion_rating": "13"
+        "emotion_rating": "13",
+        "ai_review": "false"
     },
     {
         "likes": "149",
@@ -45,6 +50,7 @@ export const testData = [
         "location": "서울 동작구",
         "poster_url": "https://image.goodchoice.kr/affiliate/2021/12/30/61cd5eb540030.jpg",
         "rating": "4.9",
-        "emotion_rating": "91"
+        "emotion_rating": "91",
+        "ai_review": "true"
     }
 ]
