@@ -1,0 +1,9 @@
+.category-btn:hover{
+    background-color: #9BB8FF;
+}
+.category-btn{
+    background-color: #EFF3FD;
+}
+.selected-btn{
+    background-color: #9BB8FF;
+}
