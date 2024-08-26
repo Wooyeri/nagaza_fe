@@ -7,7 +7,7 @@ import hotel from "@/assets/hotel.svg"
 import restaurant from "@/assets/restaurant.svg"
 import underArrow from "@/assets/underArrow.svg"
 
-import { testHotel } from "./testData"
+import { testHotel, testMovie } from "./testData"
 import ListMovie from "./ListMovie"
 import ListPlain from "./ListPlain"
 
@@ -72,7 +72,7 @@ export default function ListPage(){
                     </div>
                 </div>
             </div>
-            {curCategory === 'movie'? <ListMovie /> : <ListPlain data={testHotel} />}
+            {curCategory === 'movie'? <ListMovie data={testMovie} /> : <ListPlain data={testHotel} />}
         </div>
     )
 }

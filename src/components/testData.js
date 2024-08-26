@@ -54,3 +54,51 @@ export const testHotel = [
         "ai_review": "true"
     }
 ]
+
+export const testMovie = [
+    {
+        "likes": "2123",
+        "title": "임영웅ㅣ아임 히어로 더 스타디움",
+        "poster_url": "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88499/88499_320.jpg",
+        "genre": "다큐멘터리",
+        "cast": "임영웅",
+        "emotion_rating": "88",
+        "ai_review": "true"
+    },
+    {
+        "likes": "5453",
+        "title": "베테랑2",
+        "poster_url": "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88488/88488_320.jpg",
+        "genre": "액션, 범죄",
+        "cast": "황정민, 정해인, 장윤주",
+        "emotion_rating": "76",
+        "ai_review": "false"
+    },
+    {
+        "likes": "1495",
+        "title": "트위스터스",
+        "poster_url": "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88442/88442_320.jpg",
+        "genre": "액션, 어드벤처, 드라마",
+        "cast": "글렌 파월, 데이지 에드가 존스",
+        "emotion_rating": "55",
+        "ai_review": "false"
+    },
+    {
+        "likes": "1889",
+        "title": "에이리언- 로물루스",
+        "poster_url": "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88170/88170_320.jpg",
+        "genre": "SF",
+        "cast": "케일리 스패니, 데이비드 존슨",
+        "emotion_rating": "26",
+        "ai_review": "true"
+    },
+    {
+        "likes": "149",
+        "title": "늘봄가든",
+        "poster_url": "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88476/88476_320.jpg",
+        "genre": "호러, 스릴러",
+        "cast": "조윤희, 김주령",
+        "emotion_rating": "13",
+        "ai_review": "true"
+    }
+]

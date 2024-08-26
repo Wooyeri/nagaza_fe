@@ -19,7 +19,7 @@ export default function ListCard({likes, title, poster_url, location, rating, em
         alignItems: 'center'
     }
 
-    //Todo: 이미지 넣기, 좋아요, 스크랩 반영해서 아이콘 색 바꾸기
+    //Todo: 좋아요, 스크랩 반영해서 아이콘 색 바꾸기
     return(
         <div className="card" style={styles}>
             <img src={poster_url} style={{width: '330px', minHeight: '200px', borderRadius: '10px', backgroundColor: 'rgb(210, 210, 210)', border: 'none'}}/>
