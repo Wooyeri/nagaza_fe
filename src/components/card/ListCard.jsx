@@ -36,7 +36,7 @@ export default function ListCard(){
     //Todo: 이미지 넣기, 좋아요, 스크랩 반영해서 아이콘 색 바꾸기
     return(
         <div className="card" style={styles}>
-            <img style={{height: '150px', border: '1px solid black'}}/>
+            <img style={{width: '330px', minHeight: '200px', borderRadius: '10px', backgroundColor: 'rgb(210, 210, 210)', border: 'none'}}/>
             <div className="btn-area" style={{display: 'flex', marginTop: '15px', flexDirection: 'row', alignItems: 'center'}}>
                 <span style={{fontSize: '14px', margin: '0 3px'}}>{likes}</span>
                 <img src={likeIcon} style={{width: '25px', marginRight: '5px'}} />

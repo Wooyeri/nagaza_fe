@@ -45,7 +45,7 @@ export default function ListMovieCard(){
     //Todo: 이미지 넣기, 좋아요, 스크랩 반영해서 아이콘 색 바꾸기
     return(
         <div className="card" style={wrapperStyles}>
-            <img style={{minWidth: '230px', minHeight: '330px', margin: '30px', borderRadius: '10px'}}/>
+            <img style={{minWidth: '230px', minHeight: '330px', margin: '30px', borderRadius: '10px', backgroundColor: 'rgb(210, 210, 210)'}}/>
             <div className='btn-contents' style={btnContentsStyles}>
                 <div className="btn-area" style={{display: 'flex', marginTop: '15px', flexDirection: 'row', alignItems: 'center'}}>
                     <span style={{fontSize: '14px', margin: '0 3px'}}>{likes}</span>
