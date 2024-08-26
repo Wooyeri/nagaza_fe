@@ -7,3 +7,27 @@
 .selected-btn{
     background-color: #9BB8FF;
 }
+
+.arrow-btn {
+    margin-left: 10px;
+    transition: transform 0.3s ease; /* Smooth animation for rotation */
+  }
+  
+.arrow-btn.open {
+transform: rotate(180deg); /* Rotate 180 degrees when dropdown is open */
+}
+
+.sort-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sort-list li {
+    width: 80%;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.sort-list li:hover{
+    background-color: rgb(219, 219, 219);
+}

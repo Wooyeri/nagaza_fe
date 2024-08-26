@@ -4,11 +4,13 @@ import searchIcon from "@/assets/search_icon.svg"
 import movie from "@/assets/movie.svg"
 import hotel from "@/assets/hotel.svg"
 import restaurant from "@/assets/restaurant.svg"
+import underArrow from "@/assets/underArrow.svg"
 
 
 export default function ListPage(){
     const [search, setSearch] = useState('')
     const [curCategory, setCurCategory] = useState('')
+    const [spreadSort, setSpreadSort] = useState(false)
 
     const containerStyle = {
         display: 'flex',
@@ -50,6 +52,19 @@ export default function ListPage(){
             <div className="search-area" style={{display: 'flex', flexDirection: 'row', alignItems: 'center', width: '70%', padding: '10px 10px 10px 15px', border: '1px solid #9E9E9E', borderRadius: '30px'}}>
                 <img src={searchIcon} />
                 <input type="text" value={search} placeholder="Search..." onChange={(e) => {setSearch(e.target.value)}} style={{width: '80%', fontSize: '20px', border: 'none', margin: '0 3%'}} />
+            </div>
+            <div className="sort-area" style={{width: '100%', display: 'flex', justifyContent: 'right', margin: '50px 0'}}>
+                <div style={{ position: 'relative', display: 'inline-block', margin: '0 30px'}}>
+                    <div className="sort" onClick={() => {setSpreadSort(!spreadSort)}} style={{width: '100px', border: '2px solid #CBD2E0', borderRadius: '6px', padding: '10px', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', cursor: 'pointer'}}>
+                        <div>정렬 기준</div> <img className={`arrow-btn ${spreadSort ? 'open' : ''}`} src={underArrow} />
+                    </div>
+                    <div style={{position: 'absolute', top: '110%', left: '50%', transform: 'translateX(-50%)', zIndex: 1, backgroundColor: 'white', width:'120px', border: '2px solid #CBD2E0',borderRadius: '5px'}} hidden={spreadSort ? false : true}>
+                        <ul className = "sort-list" style={{listStyle: 'none', padding: '0', textAlign: 'center'}}>
+                            <li>좋아요 순</li>
+                            <li>이름 순</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     )
