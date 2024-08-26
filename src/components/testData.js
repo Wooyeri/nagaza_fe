@@ -1,4 +1,4 @@
-export const testData = [
+export const testHotel = [
     {
         "likes": "1234",
         "title": "서울신라호텔",

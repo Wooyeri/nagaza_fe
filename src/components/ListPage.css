@@ -22,11 +22,3 @@
 .sort-list li:hover{
     background-color: rgb(219, 219, 219);
 }
-
-.card-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    place-items: center;
-    gap: 50px;
-    width: 80%;
-}

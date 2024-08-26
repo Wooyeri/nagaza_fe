@@ -16,18 +16,3 @@
 .arrow-btn.open {
 transform: rotate(180deg); /* Rotate 180 degrees when dropdown is open */
 }
-
-.sort-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.sort-list li {
-    width: 80%;
-    padding: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.sort-list li:hover{
-    background-color: rgb(219, 219, 219);
-}

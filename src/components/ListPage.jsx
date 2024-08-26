@@ -1,5 +1,4 @@
 import { useState } from "react"
-import ListCard from "./card/ListCard"
 import "./ListPage.css"
 import "./button.css"
 import searchIcon from "@/assets/search_icon.svg"
@@ -8,7 +7,9 @@ import hotel from "@/assets/hotel.svg"
 import restaurant from "@/assets/restaurant.svg"
 import underArrow from "@/assets/underArrow.svg"
 
-import { testData } from "./testHotel"
+import { testHotel } from "./testData"
+import ListMovie from "./ListMovie"
+import ListPlain from "./ListPlain"
 
 
 export default function ListPage(){
@@ -71,11 +72,7 @@ export default function ListPage(){
                     </div>
                 </div>
             </div>
-            <div className="card-list">
-                {testData.map( (hotel, idx) => 
-                    <ListCard key={idx} likes={hotel.likes} title={hotel.title} poster_url={hotel.poster_url} location={hotel.location} rating={hotel.rating} emotion_rating={Number(hotel.emotion_rating)} ai_review={JSON.parse(hotel.ai_review)}/>
-                )}
-            </div>
+            {curCategory === 'movie'? <ListMovie /> : <ListPlain data={testHotel} />}
         </div>
     )
 }
