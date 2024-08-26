@@ -1,10 +1,14 @@
 import { useState } from "react"
+import ListCard from "./card/ListCard"
+import "./ListPage.css"
 import "./button.css"
 import searchIcon from "@/assets/search_icon.svg"
 import movie from "@/assets/movie.svg"
 import hotel from "@/assets/hotel.svg"
 import restaurant from "@/assets/restaurant.svg"
 import underArrow from "@/assets/underArrow.svg"
+
+import { testData } from "./testHotel"
 
 
 export default function ListPage(){
@@ -15,7 +19,8 @@ export default function ListPage(){
     const containerStyle = {
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom: "100px"
     }
     const buttonStyle = {
         width: '60px',
@@ -65,6 +70,11 @@ export default function ListPage(){
                         </ul>
                     </div>
                 </div>
+            </div>
+            <div className="card-list">
+                {testData.map( (hotel, idx) => 
+                    <ListCard key={idx} likes={hotel.likes} title={hotel.title} poster_url={hotel.poster_url} location={hotel.location} rating={hotel.rating} emotion_rating={Number(hotel.emotion_rating)} ai_review={true}/>
+                )}
             </div>
         </div>
     )
