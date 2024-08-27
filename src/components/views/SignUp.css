@@ -1,11 +1,13 @@
-.signup-container {
+.form-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 5rem;
 }
 
-.signup-form {
+.form-container form {
+  display: flex;
+  flex-direction: column;
   background-color: #ffffff;
   padding: 2rem;
   border-radius: 8px;
@@ -13,25 +15,30 @@
   width: 40%;
   min-width: 20rem;
   max-width: 30rem;
-  box-sizing: border-box;
+  min-height: 30rem;
 }
-
-.signup-form h2 {
+.form-container .forms {
+  margin-bottom: 1.5rem;
+}
+.form-container form h2 {
   text-align: center;
   margin-bottom: 2.5rem;
+}
+.form-container form p {
+  margin-left: 1.3rem;
+  margin-bottom: 1.5rem;
 }
 
 .form-group {
   margin-bottom: 1rem;
 }
-
 .form-group label {
   margin-left: 1rem;
 }
-
 .form-group input {
   width: calc(100% - 1rem);
   padding: 0.7rem;
+  margin-top: 0.5rem;
   margin-left: 0.8rem;
   border: 1px solid #e2e8f0;
   border-radius: 4px;
@@ -46,17 +53,21 @@
   justify-content: center;
 }
 .submit-button {
-  width: 100%;
+  width: 95%;
   padding: 0.75rem;
   background-color: #1a73e8;
   color: #ffffff;
-  border: none;
+  border: 1px solid #1a73e8;
   border-radius: 4px;
   font-size: 1rem;
   cursor: pointer;
 }
+.submit-button:hover{
+  background-color: #ffffff;
+  color: #1a73e8;
+}
 
-.google-signup {
+.google-btn {
   text-align: center;
   margin: 1rem 0;
 }
@@ -73,12 +84,12 @@
   cursor: pointer;
 }
 
-.login-link {
+.link {
   text-align: center;
   margin-top: 1rem;
 }
 
-.login-link a {
+.link a {
   color: #1a73e8;
   text-decoration: none;
 }
