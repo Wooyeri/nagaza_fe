@@ -18,7 +18,7 @@ export default function EmotionGauge({emotion_rating}){
         } else if (emotion_rating <= 100){
             setEmoji('😍');
         }
-    }, [])
+    }, [emotion_rating])
 
     const gaugeBar = {
         display: 'flex',

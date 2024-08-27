@@ -7,10 +7,10 @@ import hotel from "@/assets/hotel.svg"
 import restaurant from "@/assets/restaurant.svg"
 import underArrow from "@/assets/underArrow.svg"
 
-import { testHotel, testMovie } from "./testData"
-import ListMovie from "./ListMovie"
-import ListPlain from "./ListPlain"
+import { testHotel, testMovie } from "../testData"
 import { useNavigate, useParams } from "react-router-dom"
+import ListMovie from "@/components/list/ListMovie"
+import ListPlain from "@/components/list/ListPlain"
 
 
 export default function ListPage(){
