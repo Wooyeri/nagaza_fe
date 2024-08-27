@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import './MyMenu.css';
 import person from '@/assets/person.svg';
 import like from '@/assets/like_gray.svg';
@@ -6,11 +7,11 @@ import bookmark from '@/assets/bookmark_gray.svg';
 import lightbulb from '@/assets/lightbulb.svg';
 import logout from '@/assets/logout.svg';
 
-export default function MyMenu() {
+export default function MyMenu({ showDropdown }) {
   const [darkTheme, setDarkTheme] = useState(false);
 
   return (
-    <div className='mymenu-list-container'>
+    <div className='mymenu-list-container' hidden={ showDropdown }>
       <h1>마이페이지</h1>
       <ul className="mymenu-list">
         <li className='color'>
@@ -53,4 +54,7 @@ export default function MyMenu() {
       </ul>
     </div>
   );
+}
+MyMenu.propTypes = {
+  showDropdown: PropTypes.bool
 }

@@ -24,7 +24,7 @@ export default function Header(){
                 {isLogin ?
                     <div style={{marginRight: "3rem"}}>
                         <img src={avatar} style={{width: "40px", cursor: "pointer"}} onClick={() => {setShowDropdown(!showDropdown)}} />
-                        {showDropdown && <MyMenu />}
+                        <MyMenu showDropdown={showDropdown} />
                     </div>
                 :<div>
                     <button className="header-btn signup" onClick={() => {navigate('/signup')}} style={{border: "1px solid #1F1BDA"}}>Sign Up</button>
