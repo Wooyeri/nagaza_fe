@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./ListPage.css"
 import "./button.css"
 import searchIcon from "@/assets/search_icon.svg"
@@ -10,19 +10,29 @@ import underArrow from "@/assets/underArrow.svg"
 import { testHotel, testMovie } from "./testData"
 import ListMovie from "./ListMovie"
 import ListPlain from "./ListPlain"
+import { useNavigate, useParams } from "react-router-dom"
 
 
 export default function ListPage(){
-    const [search, setSearch] = useState('')
-    const [curCategory, setCurCategory] = useState('')
-    const [spreadSort, setSpreadSort] = useState(false)
+    const navigate = useNavigate();
+    const { givenCategory } = useParams();
+    const [search, setSearch] = useState('');
+    const [curCategory, setCurCategory] = useState('');
+    const [spreadSort, setSpreadSort] = useState(false);
+
+    useEffect(()=>{
+        if(givenCategory) {
+            setCurCategory(givenCategory);
+            navigate('/lists', { replace: true })
+        }
+    }, [])
 
     const containerStyle = {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         marginBottom: "100px"
-    }
+    };
     const buttonStyle = {
         width: '60px',
         height: '60px',
@@ -32,13 +42,13 @@ export default function ListPage(){
         alignItems: 'center',
         cursor: 'pointer',
         margin: '0 60px'
-    }
+    };
     const buttonFont = {
         textAlign: 'center',
         fontWeight: 'extra bold',
         fontSize: '16px',
         margin: '15px'
-    }
+    };
     return(
         <div className="list-page-container" style={containerStyle}>
             <div className="category-btns" style={{display: 'flex', flexDirection: 'row', alignItems: 'center', margin: '60px'}}>
