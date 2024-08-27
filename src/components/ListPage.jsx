@@ -25,7 +25,7 @@ export default function ListPage(){
             setCurCategory(givenCategory);
             navigate('/lists', { replace: true })
         }
-    }, [])
+    }, [navigate, givenCategory])
 
     const containerStyle = {
         display: 'flex',
