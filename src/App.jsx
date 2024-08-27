@@ -5,9 +5,9 @@ import ListPage from '@/components/views/ListPage'
 import Home from '@/components/views/Home'
 import DetailPage from '@/components/views/DetailPage'
 import NotFound from './components/views/NotFound'
+import MyLikeSaved from './components/views/MyLikeSaved'
 
 function App() {
-
   return (
     <div>
       <Routes>
@@ -15,6 +15,7 @@ function App() {
           <Route index element={<Home/>}/>
           <Route path='/lists/:category?' element={<ListPage />}/>
           <Route path="/lists/:category/:id" element={<DetailPage/>}/>
+          <Route path='/mypage/mylists/:category?' element={<MyLikeSaved />}/>
           <Route path='*' element={<NotFound />}/>
         </Route>
       </Routes>

@@ -23,8 +23,8 @@ export default function ListPage(){
     useEffect(()=>{
         if(category) {
             if( category === 'movie' || category === 'hotel' || category === 'restaurant' )setCurCategory(category);
-            navigate('/lists', { replace: true })
         }
+        navigate('/lists', { replace: true })
     }, [navigate, category])
 
     const containerStyle = {
