@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import './card.css'
 import EmotionGauge from "./EmotionGauge"
 import likeIcon from '@/assets/like_icon.svg'
-import scrapIcon from '@/assets/scrap_icon.svg'
+import bookmarkIcon from '@/assets/bookmark_icon.svg'
 import robotIcon from '@/assets/robot_icon.svg'
 
 export default function ListCard({likes, title, poster_url, location, rating, emotion_rating, ai_review}){
@@ -26,7 +26,7 @@ export default function ListCard({likes, title, poster_url, location, rating, em
             <div className="btn-area" style={{display: 'flex', marginTop: '15px', flexDirection: 'row', alignItems: 'center'}}>
                 <span style={{fontSize: '14px', margin: '0 3px'}}>{likes}</span>
                 <img src={likeIcon} style={{width: '25px', marginRight: '5px'}} />
-                <img src={scrapIcon} style={{width: '25px', margin: '0 5px'}} />
+                <img src={bookmarkIcon} style={{width: '25px', margin: '0 5px'}} />
                 {ai_review ? <img src={robotIcon} style={{width: '30px', margin: '0 5px'}}/> : <></>}
             </div>
             <div className="contents">

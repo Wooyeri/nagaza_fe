@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import EmotionGauge from "./card/EmotionGauge"
 
 import likeIcon from '@/assets/like_icon.svg'
-import scrapIcon from '@/assets/scrap_icon.svg'
+import bookmarkIcon from '@/assets/bookmark_icon.svg'
 import robotIcon from '@/assets/robot_icon.svg'
 
 // Todo: 이미지 가로 최소 크기는 영화는 다르게 할 것
@@ -59,7 +59,7 @@ export default function ListDetail(){
                     <div className="btn-area" style={{display: 'flex', marginTop: '15px', flexDirection: 'row', alignItems: 'center'}}>
                         <span style={{fontSize: '14px', margin: '0 3px'}}>{likes}</span>
                         <img src={likeIcon} style={{width: '25px', marginRight: '5px'}} />
-                        <img src={scrapIcon} style={{width: '25px', margin: '0 5px'}} />
+                        <img src={bookmarkIcon} style={{width: '25px', margin: '0 5px'}} />
                     </div>
                     <h1 style={{fontWeight: '600', fontSize: '36px', lineHeight: '150%', color: "#111827"}}>{title}</h1>
                     <div className="contents" style={{marginBottom: '30px'}}>
