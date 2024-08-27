@@ -4,9 +4,9 @@ import { Outlet } from "react-router-dom";
 
 export default function Layout(){
     return(
-        <div style={{ display: 'flex', flexDirection: 'column', width:'100%', minHeight: '100%'}}>
+        <div style={{ display: 'flex', flexDirection: 'column', width:'100%', minHeight: '100%', justifyContent: "space-around"}}>
             <Header />
-            <div style={{flex: 1}}>
+            <div style={{display: "flex", flexGrow: '1', justifyContent: "center"}}>
                 <Outlet />
             </div>
             <Footer />            

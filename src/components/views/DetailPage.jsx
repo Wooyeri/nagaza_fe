@@ -3,6 +3,8 @@ import CategoryLinkButtons from "./CategoryLinkButtons"
 
 export default function DetailPage(){
     const containerStyle = {
+        width: "100%",
+        justifyContent: "center",
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

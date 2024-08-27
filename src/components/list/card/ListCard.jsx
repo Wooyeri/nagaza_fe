@@ -4,8 +4,11 @@ import EmotionGauge from "./EmotionGauge"
 import likeIcon from '@/assets/like_icon.svg'
 import bookmarkIcon from '@/assets/bookmark_icon.svg'
 import robotIcon from '@/assets/robot_icon.svg'
+import { useNavigate } from 'react-router-dom';
 
 export default function ListCard({likes, title, poster_url, location, rating, emotion_rating, ai_review}){
+    const id = 'any'
+    const navigate = useNavigate();
     const styles = {
         display: 'flex',
         padding: '15px 0',
@@ -21,7 +24,7 @@ export default function ListCard({likes, title, poster_url, location, rating, em
 
     //Todo: 좋아요, 스크랩 반영해서 아이콘 색 바꾸기
     return(
-        <div className="card" style={styles}>
+        <div className="card" style={styles} onClick={() => {navigate(id)}}>
             <img src={poster_url} style={{width: '330px', minHeight: '200px', borderRadius: '10px', backgroundColor: 'rgb(210, 210, 210)', border: 'none'}}/>
             <div className="btn-area" style={{display: 'flex', marginTop: '15px', flexDirection: 'row', alignItems: 'center'}}>
                 <span style={{fontSize: '14px', margin: '0 3px'}}>{likes}</span>

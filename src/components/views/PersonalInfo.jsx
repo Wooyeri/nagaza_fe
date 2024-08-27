@@ -11,12 +11,15 @@ export default function PersonalInfo(){
             return;
         }
     }, [navigate])
+    const containerStyles = {
+        display: "flex", flexDirection: "column", alignItems: "center",
+        margin: "4rem 0", width: "100%", justifyContent: "center"}
     const imageContainerStyles = {
         border: '2px solid #111827', borderRadius: "5px", width: "20rem", height: "13rem",
         display: "flex", justifyContent: "center", alignItems: "center"
     }
     return(
-        <div className="personal-container" style={{display: "flex",flexDirection: "column", alignItems: "center", margin: "4rem 0"}}>
+        <div className="personal-container" style={containerStyles}>
             <div className="info" style={imageContainerStyles}> <img src={avatar} style={{width: "4rem"}} /> </div>
             <div style={{padding: "2rem"}}>
                 <div>이름: </div>

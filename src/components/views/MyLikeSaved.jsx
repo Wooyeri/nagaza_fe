@@ -21,6 +21,8 @@ export default function MyLikeSaved(){
     }, [navigate, category])
 
     const containerStyle = {
+        width: "100%",
+        justifyContent: "center",
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

@@ -2,8 +2,10 @@ import CategoryLinkButtons from "./CategoryLinkButtons"
 
 export default function Home(){
     const containerStyle = {
+        width: "100%",
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: "center",
         alignItems: 'center',
         margin: "150px 0"
     }

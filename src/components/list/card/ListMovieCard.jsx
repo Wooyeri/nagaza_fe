@@ -4,8 +4,11 @@ import './card.css'
 import likeIcon from '@/assets/like_icon.svg'
 import bookmarkIcon from '@/assets/bookmark_icon.svg'
 import robotIcon from '@/assets/robot_icon.svg'
+import { useNavigate } from 'react-router-dom';
 
 export default function ListMovieCard({likes, title, poster_url, genre, cast, emotion_rating, ai_review}){
+    const id = 'any';
+    const navigate = useNavigate();
     const wrapperStyles = {
         minWidth: '500px',
         maxWidth: '530px',
@@ -30,7 +33,7 @@ export default function ListMovieCard({likes, title, poster_url, genre, cast, em
 
     //Todo: 좋아요, 스크랩 반영해서 아이콘 색 바꾸기
     return(
-        <div className="card" style={wrapperStyles}>
+        <div className="card" style={wrapperStyles} onClick={() => {navigate(id)}}>
             <img src={poster_url} style={{width: '230px', minHeight: '330px', margin: '30px', borderRadius: '10px', backgroundColor: 'rgb(210, 210, 210)'}}/>
             <div className='btn-contents' style={btnContentsStyles}>
                 <div className="btn-area" style={{display: 'flex', marginTop: '15px', flexDirection: 'row', alignItems: 'center'}}>

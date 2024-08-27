@@ -22,12 +22,15 @@ export default function ListPage(){
 
     useEffect(()=>{
         if(category) {
-            if( category === 'movie' || category === 'hotel' || category === 'restaurant' )setCurCategory(category);
+            if( category === 'movie' || category === 'hotel' || category === 'restaurant' ) setCurCategory(category);
+            else navigate('/lists')
         }
-        navigate('/lists', { replace: true })
+        //navigate('/lists', { replace: true })
     }, [navigate, category])
 
     const containerStyle = {
+        width: "100%",
+        justifyContent: "center",
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -65,7 +68,7 @@ export default function ListPage(){
                     <div style={buttonFont}>식당</div>
                 </div>
             </div>
-            <div className="search-area" style={{display: 'flex', flexDirection: 'row', alignItems: 'center', width: '70%', padding: '10px 10px 10px 15px', border: '1px solid #9E9E9E', borderRadius: '30px'}}>
+            <div className="search-area" style={{display: 'flex', flexDirection: 'row', alignItems: 'center', width: '50%', padding: '10px 10px 10px 15px', border: '1px solid #9E9E9E', borderRadius: '30px'}}>
                 <img src={searchIcon} />
                 <input type="text" value={search} placeholder="Search..." onChange={(e) => {setSearch(e.target.value)}} style={{width: '80%', fontSize: '20px', border: 'none', margin: '0 3%'}} />
             </div>

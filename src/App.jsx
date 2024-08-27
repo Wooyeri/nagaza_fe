@@ -12,7 +12,7 @@ import PersonalInfo from './components/views/PersonalInfo'
 
 function App() {
   return (
-    <div>
+    <div style={{width: "100%"}}>
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home/>}/>
