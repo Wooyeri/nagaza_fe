@@ -15,6 +15,11 @@ export default function Header(){
         setIsLogin(true);
     }, [isLogin]);
 
+    const avatarStyles = {
+        display: "flex", justifyContent: "center", alignItems: "center",
+        background: "#F5F5F5", width: "40px", height: "40px",
+        padding: "5px", borderRadius: "30px"};
+
     return(
         <div className="header" style={{height: "4.5rem"}}>
             <div className="logo" style={{cursor: "pointer"}} onClick={() => {navigate('/')}}>
@@ -23,7 +28,7 @@ export default function Header(){
             <div className="avatar" style={{position: "relative", display: "inline-block"}}>
                 {isLogin ?
                     <div style={{marginRight: "3rem"}}>
-                        <img src={avatar} style={{width: "40px", cursor: "pointer"}} onClick={() => {setShowDropdown(!showDropdown)}} />
+                        <div style={avatarStyles}><img src={avatar} style={{width: "30px", cursor: "pointer"}} onClick={() => {setShowDropdown(!showDropdown)}} /></div>
                         <MyMenu showDropdown={showDropdown} />
                     </div>
                 :<div>
