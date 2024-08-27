@@ -5,8 +5,9 @@ import likeIcon from '@/assets/like_icon.svg'
 import scrapIcon from '@/assets/scrap_icon.svg'
 import robotIcon from '@/assets/robot_icon.svg'
 
-// 이미지 가로 최소 크기는 영화는 다르게 할 것
+// Todo: 이미지 가로 최소 크기는 영화는 다르게 할 것
 // 리뷰랑 정보 가져오는 것 관련 통신 코드 작성
+// 좋아요, 스크랩 여부 로그인 상태 확인해서 그림 바꾸기
 
 
 export default function ListDetail(){
