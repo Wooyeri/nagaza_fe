@@ -24,16 +24,56 @@
   width: 85%;
   padding: 8px 10px;
 }
-.mymenu-list li div{
+.mymenu-list li .option {
+  display: flex;
+  flex-direction: row;
+}
+.mymenu-list li .text{
   color: #777E91;
   font-weight: 700;
   font-size: 14px;
   padding: 8px 10px;
-  border-radius: 5px;
 }
 .mymenu-list li.color div:hover{
   background-color: rgb(219, 219, 219);
   cursor: pointer;
+  border-radius: 5px;
+}
+.mymenu-list li div {
+  padding: 0 8px;
+}
+.mymenu-list li .slider-wrapper {
+  display: flex;
+  align-items: center;
+}
+.mymenu-list li .slider {
+  width: 60px;
+  height: 20px;
+  cursor: pointer;
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease, border 0.3s ease;
+}
+.mymenu-list li .slider.off {
+  border: 1px solid #E6E8EC;
+  background-color: #E6E8EC;
+}
+.mymenu-list li .slider.on {
+  background-color: #FFFFFF;
+  border: 1px solid #000000;
+}
+.mymenu-list li .slider .ball {
+  margin: 0;
+  padding: 0;
+  width: 15px;
+  height: 15px;
+  background-color: #555555;
+  border-radius: 32px;
+  transition: transform 0.3s ease;
+}
+.mymenu-list li .slider.on .ball {
+  transform: translateX(48px);
 }
 .mymenu-list .divider {
   width: 85%;
