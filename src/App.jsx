@@ -6,6 +6,8 @@ import Home from '@/components/views/Home'
 import DetailPage from '@/components/views/DetailPage'
 import NotFound from './components/views/NotFound'
 import MyLikeSaved from './components/views/MyLikeSaved'
+import Login from './components/views/Login'
+import SignUp from './components/views/SignUp'
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home/>}/>
+          <Route path='/login' element={<Login />}/>
+          <Route path='/signup' element={<SignUp />}/>
           <Route path='/lists/:category?' element={<ListPage />}/>
           <Route path="/lists/:category/:id" element={<DetailPage/>}/>
           <Route path='/mypage/mylists/:category?' element={<MyLikeSaved />}/>

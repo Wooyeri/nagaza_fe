@@ -16,6 +16,10 @@ function Login() {
     }));
   };
 
+  const handleGoogleLogin = (e) => {
+    e.preventDefault();
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', form);
@@ -27,7 +31,7 @@ function Login() {
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>Welcome Back</h2>
-        <p>Please log in to continue</p>
+        <p>Please login to continue</p>
         <div className="form-group">
           <input
             type="text"
@@ -48,8 +52,8 @@ function Login() {
         </div>
         <button type="submit" className="submit-button">Log In</button>
         <div className="google-login">
-          <button className="google-button">
-            <img src={google}/> Log in with Google
+          <button className="google-button" onClick={handleGoogleLogin}>
+            <img src={google} alt='google-logo' style={{width: "20px", marginRight: "10px"}} /> Log in with Google
           </button>
         </div>
         <div className="signup-link">

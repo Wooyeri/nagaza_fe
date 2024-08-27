@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './SignUp.css';
+import google from '@/assets/google.svg';
 
 function SignUp() {
   const [form, setForm] = useState({
@@ -19,6 +20,10 @@ function SignUp() {
     }));
   };
 
+  const handleGoogleLogin = (e) => {
+    e.preventDefault();
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -30,21 +35,27 @@ function SignUp() {
     <div className="signup-container">
       <form className="signup-form" onSubmit={handleSubmit}>
         <h2>Sign Up</h2>
-        <div className="form-group">
-          <input
-            type="text"
-            name="firstName"
-            placeholder="First Name"
-            value={form.firstName}
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Last Name"
-            value={form.lastName}
-            onChange={handleChange}
-          />
+        <div className="form-group" style={{display: "flex"}}>
+          <div>
+            <label>First Name</label>
+            <input
+              type="text"
+              name="firstName"
+              placeholder="First Name"
+              value={form.firstName}
+              onChange={handleChange}
+            />
+            </div>
+          <div>
+            <label>Last Name</label>
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              value={form.lastName}
+              onChange={handleChange}
+            />
+          </div>
         </div>
         <div className="form-group">
           <input
@@ -82,10 +93,10 @@ function SignUp() {
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="submit-button">Sign Up</button>
+        <div className='submit-btn-container'><button type="submit" className="submit-button">Sign Up</button></div>
         <div className="google-signup">
-          <button className="google-button">
-            <span className="google-icon">G</span> Sign up with Google
+          <button className="google-button" onClick={handleGoogleLogin}>
+            <img src={google} alt='google-logo' style={{width: "20px", marginRight: "10px"}}/> Sign up with Google
           </button>
         </div>
         <div className="login-link">
