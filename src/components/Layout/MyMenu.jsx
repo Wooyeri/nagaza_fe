@@ -6,32 +6,41 @@ import like from '@/assets/like_gray.svg';
 import bookmark from '@/assets/bookmark_gray.svg';
 import lightbulb from '@/assets/lightbulb.svg';
 import logout from '@/assets/logout.svg';
+import { useNavigate } from 'react-router-dom';
 
-export default function MyMenu({ showDropdown }) {
+export default function MyMenu({ showDropdown, setShowDropdown }) {
+  const navigate = useNavigate();
   const [darkTheme, setDarkTheme] = useState(false);
 
+  const handleLogout = () => {
+    sessionStorage.removeItem('jwtToken');
+    navigate('/');
+    setShowDropdown(false);
+    window.location.reload();
+  }
+
   return (
-    <div className='mymenu-list-container' hidden={ showDropdown }>
+    <div className='mymenu-list-container' hidden={ !showDropdown }>
       <h1>마이페이지</h1>
       <ul className="mymenu-list">
         <li className='color'>
           <div className='option'>
             <img src={person} alt='person-icon' />
-            <div className='text'>개인 정보</div>
+            <div className='text' onClick={() => {navigate('/mypage/personal'); setShowDropdown(false)}}>개인 정보</div>
           </div>
         </li>
         <div className='divider'></div>
         <li className='color'>
           <div className='option'>
             <img src={like} alt='heart-icon' />
-            <div className='text'>좋아요</div>
+            <div className='text' onClick={() => {navigate('/mypage/mylists/liked'); setShowDropdown(false)}}>좋아요</div>
           </div>
         </li>
         <div className='divider'></div>
         <li className='color'>
           <div className='option'>
             <img src={bookmark} alt='bookmark-icon' />
-            <div className='text'>스크랩</div>
+            <div className='text' onClick={() => {navigate('/mypage/mylists/saved'); setShowDropdown(false)}}>스크랩</div>
           </div>
         </li>
         <div className='divider'></div>
@@ -48,7 +57,7 @@ export default function MyMenu({ showDropdown }) {
         <li className='color'>
           <div className='option'>
             <img src={logout} alt='logout-icon'/>
-            <div className='text'>로그아웃</div>
+            <div className='text' onClick={handleLogout}>로그아웃</div>
           </div>
         </li>
       </ul>
@@ -56,5 +65,6 @@ export default function MyMenu({ showDropdown }) {
   );
 }
 MyMenu.propTypes = {
-  showDropdown: PropTypes.bool
+  showDropdown: PropTypes.bool,
+  setShowDropdown: PropTypes.func
 }

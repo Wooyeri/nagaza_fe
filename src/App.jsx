@@ -8,6 +8,7 @@ import NotFound from './components/views/NotFound'
 import MyLikeSaved from './components/views/MyLikeSaved'
 import Login from './components/views/Login'
 import SignUp from './components/views/SignUp'
+import PersonalInfo from './components/views/PersonalInfo'
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
           <Route path='/login' element={<Login />}/>
           <Route path='/signup' element={<SignUp />}/>
           <Route path='/lists/:category?' element={<ListPage />}/>
-          <Route path="/lists/:category/:id" element={<DetailPage/>}/>
+          <Route path='/lists/:category/:id' element={<DetailPage />}/>
+          <Route path='/mypage/personal' element={<PersonalInfo />}/>
           <Route path='/mypage/mylists/:category?' element={<MyLikeSaved />}/>
           <Route path='*' element={<NotFound />}/>
         </Route>

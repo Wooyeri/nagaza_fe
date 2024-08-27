@@ -11,8 +11,21 @@
 .arrow-btn {
     margin-left: 10px;
     transition: transform 0.3s ease; /* Smooth animation for rotation */
-  }
+}
   
 .arrow-btn.open {
 transform: rotate(180deg); /* Rotate 180 degrees when dropdown is open */
+}
+
+.password-change {
+    padding: 0.5rem 1.5rem;
+    background-color: rgba(0, 0, 0, 0);
+    color: #3563E9;
+    border: 1px solid #3563E9;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.password-change:hover {
+    background-color: #3563E9;
+    color: #ffffff;
 }

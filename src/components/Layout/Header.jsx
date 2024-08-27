@@ -12,7 +12,7 @@ export default function Header(){
     const [showDropdown, setShowDropdown] = useState(false);
     useEffect(()=>{
         if(sessionStorage.getItem('jwtToken')) setIsLogin(true);
-        setIsLogin(true);
+        else setIsLogin(false);
     }, [isLogin]);
 
     const avatarStyles = {
@@ -29,7 +29,7 @@ export default function Header(){
                 {isLogin ?
                     <div style={{marginRight: "3rem"}}>
                         <div style={avatarStyles}><img src={avatar} style={{width: "30px", cursor: "pointer"}} onClick={() => {setShowDropdown(!showDropdown)}} /></div>
-                        <MyMenu showDropdown={showDropdown} />
+                        <MyMenu showDropdown={showDropdown} setShowDropdown={setShowDropdown} />
                     </div>
                 :<div>
                     <button className="header-btn signup" onClick={() => {navigate('/signup')}} style={{border: "1px solid #1F1BDA"}}>Sign Up</button>

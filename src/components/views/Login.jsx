@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import "./inputForms.css"
 import google from "@/assets/google.svg"
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     id: '',
     password: '',
@@ -25,6 +27,9 @@ function Login() {
     console.log('Form submitted:', form);
 
     //Todo: 백엔드 연결
+    sessionStorage.setItem('jwtToken', "dummy")
+    navigate('/')
+    window.location.reload()
   };
 
   return (

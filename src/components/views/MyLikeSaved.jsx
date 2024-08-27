@@ -10,6 +10,10 @@ export default function MyLikeSaved(){
     const [curCategory, setCurCategory] = useState('');
 
     useEffect(()=>{
+        if(!sessionStorage.getItem('jwtToken')) {
+            navigate('/404');
+            return;
+        }
         if(category === 'liked' || category === 'saved'){
             setCurCategory(category);
         }
