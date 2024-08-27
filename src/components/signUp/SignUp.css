@@ -1,0 +1,77 @@
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .signup-form {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1075px; /* 너비를 1075px로 확장 */
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+  
+  .signup-form h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-group input {
+    width: calc(100% - 1rem);
+    padding: 0.75rem;
+    margin: 0.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box; /* 이 줄을 추가하여 padding이 포함된 박스 모델로 설정 */
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #1a73e8;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .google-signup {
+    text-align: center;
+    margin: 1rem 0;
+  }
+  
+  .google-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border: 1px solid #1a73e8;
+    background-color: #ffffff;
+    color: #1a73e8;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .google-icon {
+    margin-right: 0.5rem;
+  }
+  
+  .login-link {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  .login-link a {
+    color: #1a73e8;
+    text-decoration: none;
+  }
