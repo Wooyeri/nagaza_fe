@@ -15,17 +15,17 @@ import { useNavigate, useParams } from "react-router-dom"
 
 export default function ListPage(){
     const navigate = useNavigate();
-    const { givenCategory } = useParams();
+    const { category } = useParams();
     const [search, setSearch] = useState('');
     const [curCategory, setCurCategory] = useState('');
     const [spreadSort, setSpreadSort] = useState(false);
 
     useEffect(()=>{
-        if(givenCategory) {
-            setCurCategory(givenCategory);
+        if(category) {
+            if( category === 'movie' || category === 'hotel' || category === 'restaurant' )setCurCategory(category);
             navigate('/lists', { replace: true })
         }
-    }, [navigate, givenCategory])
+    }, [navigate, category])
 
     const containerStyle = {
         display: 'flex',
