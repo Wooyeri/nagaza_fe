@@ -1,85 +1,43 @@
-.mypage-container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-  }
-  
-  .mypage-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #f0f0f0;
-  }
-  
-  .user-icon {
-    position: relative;
-    cursor: pointer;
-  }
-  
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    z-index: 100;
-  }
-  
-  .dropdown-menu ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .dropdown-menu li {
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .dropdown-menu li:hover {
-    background-color: #f0f0f0;
-  }
-  
-  .mypage-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-  }
-  
-  .profile-summary {
-    text-align: center;
-  }
-  
-  .profile-image img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 2px solid #ddd;
-    margin-bottom: 1rem;
-  }
-  
-  .profile-details p {
-    margin: 0.5rem 0;
-  }
-  
-  .change-password-button {
-    padding: 0.5rem 1rem;
-    background-color: #1a73e8;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .mypage-footer {
-    padding: 1rem;
-    background-color: #f0f0f0;
-    text-align: center;
-    font-size: 0.875rem;
-    color: #888;
-  }
-  
+.mymenu-list-container {
+  position: absolute;
+  top: 120%;
+  left: -50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  background-color: white;
+  width: 250px;
+  border: 2px solid #000000;
+  border-radius: 10px 
+}
+.mymenu-list-container h1 {
+  margin-left: 20px;
+}
+
+.mymenu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+.mymenu-list li {
+  width: 85%;
+  padding: 8px 10px;
+}
+.mymenu-list li div{
+  color: #777E91;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 8px 10px;
+  border-radius: 5px;
+}
+.mymenu-list li.color div:hover{
+  background-color: rgb(219, 219, 219);
+  cursor: pointer;
+}
+.mymenu-list .divider {
+  width: 85%;
+  height: 1px;
+  background: #E6E8EC;
+  margin: 3px 0;
+}
