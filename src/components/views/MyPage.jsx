@@ -1,10 +1,10 @@
-import './PersonalInfo.css';
+import './Mypage.css';
 
-export default function PersonalInfo() {
+export default function MyPage() {
   return (
     <div className="personal-info-container">
       <div className="profile-image">
-        <img src="path/to/profile-placeholder.png" alt="Profile" />
+        <img src="" alt="Profile" />
       </div>
       <div className="profile-details">
         <p>이름</p>

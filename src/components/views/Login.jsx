@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Login.css';
+import google from "@/assets/google.svg"
 
 function Login() {
   const [form, setForm] = useState({
@@ -48,7 +49,7 @@ function Login() {
         <button type="submit" className="submit-button">Log In</button>
         <div className="google-login">
           <button className="google-button">
-            <span className="google-icon">G</span> Log in with Google
+            <img src={google}/> Log in with Google
           </button>
         </div>
         <div className="signup-link">

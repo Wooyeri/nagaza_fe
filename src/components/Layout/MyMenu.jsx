@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import './MyPage.css';
-import PersonalInfo from './personalInfo';
+import './MyMenu.css';
 
-function MyPage() {
+export default function MyMenu() {
   const [showPersonalInfo, setShowPersonalInfo] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -42,7 +41,7 @@ function MyPage() {
       </header>
       <main className="mypage-main">
         {showPersonalInfo ? (
-          <PersonalInfo />
+          <></>
         ) : (
           <div className="profile-summary">
             <div className="profile-image">
@@ -63,5 +62,3 @@ function MyPage() {
     </div>
   );
 }
-
-export default MyPage;
