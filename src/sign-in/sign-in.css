@@ -2,8 +2,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* 뷰포트 전체 높이를 사용 */
     background-color: #f3f4f6;
+    margin: 0;
+    padding: 0;
   }
   
   .signup-form {
@@ -12,7 +14,9 @@
     border-radius: 8px;
     box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
+    max-width: 1075px; /* 너비를 1075px로 확장 */
+    box-sizing: border-box;
+    margin: 0 auto;
   }
   
   .signup-form h2 {
@@ -31,6 +35,7 @@
     border: 1px solid #e2e8f0;
     border-radius: 4px;
     font-size: 1rem;
+    box-sizing: border-box; /* 이 줄을 추가하여 padding이 포함된 박스 모델로 설정 */
   }
   
   .submit-button {
@@ -74,4 +79,3 @@
     color: #1a73e8;
     text-decoration: none;
   }
-  

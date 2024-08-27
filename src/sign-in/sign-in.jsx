@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './SignUp.css';
+import './sign-up.css';
 
 function SignUp() {
   const [form, setForm] = useState({
@@ -23,6 +23,8 @@ function SignUp() {
     e.preventDefault();
     // Handle form submission logic here
     console.log('Form submitted:', form);
+    // After successful submission, redirect to login page
+    // Example: window.location.href = '/login';
   };
 
   return (
@@ -88,7 +90,7 @@ function SignUp() {
           </button>
         </div>
         <div className="login-link">
-          Already have an account? <a href="#">Sign in</a>
+          Already have an account? <a href="/login">Sign in</a>
         </div>
       </form>
     </div>
