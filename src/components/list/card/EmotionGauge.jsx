@@ -24,7 +24,7 @@ export default function EmotionGauge({emotion_rating}){
         display: 'flex',
         width: '250px',
         height: '30px',
-        background: 'linear-gradient(90deg, rgba(255, 0, 0, 0.45) 0%, rgba(251, 141, 13, 0.45) 27%, rgba(250, 255, 21, 0.45) 50.91%, rgba(191, 255, 54, 0.45) 71.69%, rgba(8, 255, 3, 0.45) 92.47%)',
+        background: 'linear-gradient(90deg, rgba(255, 0, 0, 0.45) 0%, rgba(251, 141, 13, 0.45) 25%, rgba(250, 255, 21, 0.45) 50%, rgba(191, 255, 54, 0.45) 75%, rgba(8, 255, 3, 0.45) 100%)',
         borderRadius: '8px',
     };
     return(

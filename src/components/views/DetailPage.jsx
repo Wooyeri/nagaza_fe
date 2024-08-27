@@ -1,3 +1,4 @@
+import ListDetail from "@/components/list/ListDetail"
 import CategoryLinkButtons from "./CategoryLinkButtons"
 
 export default function DetailPage(){
@@ -11,6 +12,7 @@ export default function DetailPage(){
     return(
         <div style={containerStyle}>
             <CategoryLinkButtons />
+            <ListDetail />
         </div>
     )
 }
