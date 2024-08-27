@@ -12,7 +12,7 @@ import robotIcon from '@/assets/robot_icon.svg'
 
 export default function ListDetail(){
     const summaryTitleStyles = {
-        display: "flex", flexDirection: "row", alignItems: "center", backgroundColor: "#C5D4FF", borderRadius: "5px",
+        display: "flex", flexDirection: "row", alignItems: "center", backgroundColor: "#A9EAFF", borderRadius: "5px",
         padding: "0 20px", width: "fit-content", marginBottom: "5px"
     };
     const testData = [{
