@@ -3,6 +3,7 @@ import "./button.css"
 import like from '@/assets/like_icon.svg';
 import bookmark from '@/assets/bookmark_icon.svg'
 import { useNavigate, useParams } from "react-router-dom";
+import ScrapList from "@/components/scrapList/ScrapList";
 
 export default function MyLikeSaved(){
     const navigate = useNavigate();
@@ -22,7 +23,6 @@ export default function MyLikeSaved(){
 
     const containerStyle = {
         width: "100%",
-        justifyContent: "center",
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -56,6 +56,7 @@ export default function MyLikeSaved(){
                     <div style={buttonFont}>스크랩</div>
                 </div>
             </div>
+            {curCategory === 'liked' ? <></> : <ScrapList />}
         </div>
     )
 }

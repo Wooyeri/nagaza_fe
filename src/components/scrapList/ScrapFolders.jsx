@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 function ScrapFolders() {
+    const [selected, setSelected] = useState('');
     const folders = [
         { name: 'movie', label: '나의 영화 목록' },
         { name: 'place', label: '나의 장소 목록' },
@@ -9,15 +10,16 @@ function ScrapFolders() {
     ];
 
     return (
-        <div className="folders">
-            {folders.map((folder) => (
-                <div className="folder" key={folder.name}>
-                    <Link to={`/scrap/list/${folder.name}`}>
+        <div>
+            <div className="folders">
+                {folders.map((folder) => (
+                    <div className={`folder ${selected === folder.name? 'selected' : ''}`} key={folder.name} onClick={() => {setSelected(folder.name)}}>
                         <span role="img" aria-label="folder">📁</span>
                         <p>{folder.label}</p>
-                    </Link>
-                </div>
-            ))}
+                    </div>
+                ))}
+            </div>
+            <div></div>
         </div>
     );
 }
