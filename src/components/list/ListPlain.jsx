@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import ListCard from "./card/ListCard"
 
-export default function ListPlain({data}){
+export default function ListPlain({data, category}){
     const styles = {
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
@@ -11,12 +11,16 @@ export default function ListPlain({data}){
     };
     return(
         <div className="card-list" style={styles}>
-            {data && data.map( (item, idx) => 
-                <ListCard key={idx} likes={item.likes} title={item.title} poster_url={item.poster_url} location={item.location} rating={item.rating} emotion_rating={Number(item.emotion_rating)} ai_review={JSON.parse(item.ai_review)}/>
+            {data && category === 'hotel' ?
+            data.map(hotel => 
+                <ListCard key={hotel.id} likeCount={hotel.likeCount} name={hotel.name} posterUrl={hotel.posterUrl} optional={hotel.location} emotionRating={Number(hotel.emotionRating)} aiReview={JSON.parse(!(hotel.likeCount == null))}/>
+            ) : data.map((restaurant, idx) => 
+                <ListCard key={idx} likeCount={restaurant.likeCount} name={restaurant.name} posterUrl={restaurant.posterUrl} optional={restaurant.foodType} emotionRating={Number(restaurant.emotionRating)} aiReview={!(restaurant.likeCount == null)}/>
             )}
         </div>
     )
 }
 ListPlain.propTypes = {
-    data: PropTypes.array
+    data: PropTypes.array,
+    category: PropTypes.string
 }

@@ -7,8 +7,9 @@ import hotel from "@/assets/hotel.svg"
 import restaurant from "@/assets/restaurant.svg"
 import underArrow from "@/assets/underArrow.svg"
 
-import { testHotel, testMovie } from "../testData"
+//import { testHotel, testMovie, testRestaurant } from "../testData"
 import { useNavigate, useParams } from "react-router-dom"
+import { getMovieLists, getHotelLists, getRestaurantLists } from "../../services/listServices"
 import ListMovie from "@/components/list/ListMovie"
 import ListPlain from "@/components/list/ListPlain"
 
@@ -19,6 +20,7 @@ export default function ListPage(){
     const [search, setSearch] = useState('');
     const [curCategory, setCurCategory] = useState('');
     const [spreadSort, setSpreadSort] = useState(false);
+    const [listSource, setListSource] = useState();
 
     useEffect(()=>{
         if(category) {
@@ -27,6 +29,27 @@ export default function ListPage(){
         }
         //navigate('/lists', { replace: true })
     }, [navigate, category])
+    useEffect(()=>{
+        if(category === 'movie') {
+            getMovieLists()
+            .then(res => {
+                setListSource(res.data)
+            })
+            .catch(err => console.error(err))
+        } else if (category === 'hotel') { 
+            getHotelLists()
+            .then(res => {
+                setListSource(res.data)
+            })
+            .catch(err => console.error(err))
+        } else if (category === 'restaurant') {
+            getRestaurantLists()
+            .then(res => {
+                setListSource(res.data)
+            })
+            .catch(err => console.error(err))
+        }
+    }, [category, curCategory])
 
     const containerStyle = {
         width: "100%",
@@ -85,7 +108,7 @@ export default function ListPage(){
                     </div>
                 </div>
             </div>
-            {curCategory !== '' && ( curCategory === 'movie'? <ListMovie data={testMovie} /> : <ListPlain data={testHotel} /> )}
+            {curCategory !== '' && ( curCategory === 'movie'? <ListMovie data={listSource} /> : <ListPlain data={listSource} category={curCategory} /> )}
         </div>
     )
 }

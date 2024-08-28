@@ -6,7 +6,7 @@ import bookmarkIcon from '@/assets/bookmark_icon.svg'
 import robotIcon from '@/assets/robot_icon.svg'
 import { useNavigate } from 'react-router-dom';
 
-export default function ListCard({likes, title, poster_url, location, rating, emotion_rating, ai_review}){
+export default function ListCard({likeCount, name, poster_url, optional, emotionRating, aiReview}){
     const id = 'any'
     const navigate = useNavigate();
     const styles = {
@@ -27,28 +27,26 @@ export default function ListCard({likes, title, poster_url, location, rating, em
         <div className="card" style={styles} onClick={() => {navigate(id)}}>
             <img src={poster_url} style={{width: '330px', minHeight: '200px', borderRadius: '10px', backgroundColor: 'rgb(210, 210, 210)', border: 'none'}}/>
             <div className="btn-area" style={{display: 'flex', marginTop: '15px', flexDirection: 'row', alignItems: 'center'}}>
-                <span style={{fontSize: '14px', margin: '0 3px'}}>{likes}</span>
+                <span style={{fontSize: '14px', margin: '0 3px'}}>{likeCount}</span>
                 <img src={likeIcon} style={{width: '25px', marginRight: '5px'}} />
                 <img src={bookmarkIcon} style={{width: '25px', margin: '0 5px'}} />
-                {ai_review ? <img src={robotIcon} style={{width: '30px', margin: '0 5px'}}/> : <></>}
+                {aiReview ? <img src={robotIcon} style={{width: '30px', margin: '0 5px'}}/> : <></>}
             </div>
             <div className="contents">
-                <h3 style={{margin: '15px 0', fontWeight: '600', fontSize:'24px', color: '#111827'}}>{title}</h3>
+                <h3 style={{margin: '15px 0', fontWeight: '600', fontSize:'24px', color: '#111827'}}>{name}</h3>
                 <div style={{color: '#6D7280', marginBottom: '10px', fontSize: '16px'}}>
-                    <div style={{fontFamily:'Microsoft GothicNeo'}}>{location}</div>
-                    <div>{rating}</div>
+                    <div style={{fontFamily:'Microsoft GothicNeo'}}>{optional}</div>
                 </div>
-                <EmotionGauge emotion_rating={emotion_rating} />
+                <EmotionGauge emotion_rating={emotionRating} />
             </div>
         </div>
     )
 }
 ListCard.propTypes = {
-    likes: PropTypes.string,
-    title: PropTypes.string,
+    likeCount: PropTypes.string,
+    name: PropTypes.string,
     poster_url: PropTypes.string,
-    location: PropTypes.string,
-    rating: PropTypes.string,
-    emotion_rating: PropTypes.number,
-    ai_review: PropTypes.bool
+    optional: PropTypes.string,
+    emotionRating: PropTypes.number,
+    aiReview: PropTypes.bool
 }

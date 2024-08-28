@@ -11,8 +11,8 @@ export default function ListMovie({data}){
     };
     return(
         <div className="card-list" style={styles}>
-            {data && data.map( (movie, idx) => 
-                <ListMovieCard key={idx} likes={movie.likes} title={movie.title} poster_url={movie.poster_url} genre={movie.genre} cast={movie.cast} emotion_rating={Number(movie.emotion_rating)} ai_review={JSON.parse(movie.ai_review)}/>
+            {data && data.map((movie) => 
+                <ListMovieCard key={Number(movie.id)} id={movie.id} likeCount={movie.likeCount} title={movie.title} posterUrl={movie.posterUrl} cast={movie.cast} reserRate={movie.genre} emotionRating={Number(movie.emotionRating)} aiReview={!(movie.likeCount == null)}/>
             )}
         </div>
     )
