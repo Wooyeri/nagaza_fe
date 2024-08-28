@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './scrapList.css';
-import ScrapDetail from './scrapDetail/ScrapDetail';
+import ScrapDetail from './listDetail/ScrapDetail';
 import { testHotel } from '../testData';
 
 function ScrapList() {
