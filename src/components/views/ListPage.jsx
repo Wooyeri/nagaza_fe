@@ -20,6 +20,7 @@ export default function ListPage(){
     const [search, setSearch] = useState('');
     const [curCategory, setCurCategory] = useState('');
     const [spreadSort, setSpreadSort] = useState(false);
+    const [sortOption, setSortOption] = useState('정렬 기준');
     const [listSource, setListSource] = useState();
 
     useEffect(()=>{
@@ -59,6 +60,8 @@ export default function ListPage(){
         alignItems: 'center',
         marginBottom: "100px"
     };
+    const sortOptionStyles = {position: 'absolute', top: '110%', left: '50%', transform: 'translateX(-50%)',
+        zIndex: 1, backgroundColor: 'white', width:'120px', border: '2px solid #CBD2E0',borderRadius: '5px'}
     const buttonStyle = {
         width: '60px',
         height: '60px',
@@ -98,12 +101,12 @@ export default function ListPage(){
             <div className="sort-area" style={{width: '100%', display: 'flex', justifyContent: 'right', margin: '50px 0'}}>
                 <div style={{ position: 'relative', display: 'inline-block', margin: '0 15%'}}>
                     <div className="sort-btn" onClick={() => {setSpreadSort(!spreadSort)}}>
-                        <div>정렬 기준</div> <img className={`arrow-btn ${spreadSort ? 'open' : ''}`} src={underArrow} />
+                        <div>{sortOption}</div> <img className={`arrow-btn ${spreadSort ? 'open' : ''}`} src={underArrow} />
                     </div>
-                    <div style={{position: 'absolute', top: '110%', left: '50%', transform: 'translateX(-50%)', zIndex: 1, backgroundColor: 'white', width:'120px', border: '2px solid #CBD2E0',borderRadius: '5px'}} hidden={spreadSort ? false : true}>
+                    <div style={sortOptionStyles} hidden={spreadSort ? false : true}>
                         <ul className = "sort-list" style={{listStyle: 'none', padding: '0', textAlign: 'center'}}>
-                            <li>좋아요 순</li>
-                            <li>이름 순</li>
+                            <li onClick={() => {setSortOption('좋아요 순')}}>좋아요 순</li>
+                            <li onClick={() => {setSortOption('이름 순')}}>이름 순</li>
                         </ul>
                     </div>
                 </div>
