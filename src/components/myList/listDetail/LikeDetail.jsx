@@ -4,7 +4,7 @@ import like from '@/assets/like_icon.svg';
 import bookmark from '@/assets/bookmark_icon.svg';
 //import bookmark_filled from '@/assets/bookmark_yellow.svg';
 import robot_icon from '@/assets/robot_icon.svg';
-import './ScrapDetail.css';
+import './mylistDetail.css';
 import { useEffect, useState } from 'react';
 
 export default function LikeDetail({ contents }) { // 기본값으로 빈 배열 설정
