@@ -1,5 +1,5 @@
 import ListDetail from "@/components/list/ListDetail"
-import CategoryLinkButtons from "./CategoryLinkButtons"
+import CategoryLinkButtons from "./common/CategoryLinkButtons"
 
 export default function DetailPage(){
     const containerStyle = {

@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import "./button.css"
+import "./common/button.css"
 import avatar from "@/assets/avatar.svg"
 import { useNavigate } from "react-router-dom"
 

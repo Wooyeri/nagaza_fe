@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import "./inputForms.css";
+import "./common/inputForms.css";
 import google from '@/assets/google.svg';
 
 function SignUp() {

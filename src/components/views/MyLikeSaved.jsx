@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./button.css"
+import "./common/button.css"
 import like from '@/assets/like_icon.svg';
 import bookmark from '@/assets/bookmark_icon.svg'
 import { useNavigate, useParams } from "react-router-dom";

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import "./ListPage.css"
-import "./button.css"
+import "./common/button.css"
 import searchIcon from "@/assets/search_icon.svg"
 import movie from "@/assets/movie.svg"
 import hotel from "@/assets/hotel.svg"

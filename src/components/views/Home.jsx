@@ -1,4 +1,4 @@
-import CategoryLinkButtons from "./CategoryLinkButtons"
+import CategoryLinkButtons from "./common/CategoryLinkButtons"
 
 export default function Home(){
     const containerStyle = {
