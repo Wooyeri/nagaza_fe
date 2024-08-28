@@ -27,14 +27,11 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', form);
-
     handleLogin(form)
     .then(res => {
-      console.log(res);
-      //sessionStorage.setItem('jwtToken', "dummy")
-      //navigate('/')
-      //window.location.reload()
+      if (res.status == 200) sessionStorage.setItem('jwtToken', (res.headers.authorization).split(' ')[1]);
+      navigate('/')
+      window.location.reload();
     })
     .catch(e => console.error(e))
   };

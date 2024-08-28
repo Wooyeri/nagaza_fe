@@ -11,7 +11,9 @@ export default function Header(){
     const [isLogin, setIsLogin] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false);
     useEffect(()=>{
-        if(sessionStorage.getItem('jwtToken')) setIsLogin(true);
+        if(sessionStorage.getItem('jwtToken')) {
+            setIsLogin(true);
+        }
         else setIsLogin(false);
     }, [isLogin]);
 

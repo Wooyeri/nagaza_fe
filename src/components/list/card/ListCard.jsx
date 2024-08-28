@@ -6,7 +6,7 @@ import bookmarkIcon from '@/assets/bookmark_icon.svg'
 import robotIcon from '@/assets/robot_icon.svg'
 import { useNavigate } from 'react-router-dom';
 
-export default function ListCard({id, category, likeCount, name, poster_url, optional, emotionRating, aiReview}){
+export default function ListCard({id, category, likeCount, name, posterUrl, optional, emotionRating, aiReview}){
     const navigate = useNavigate();
     const styles = {
         display: 'flex',
@@ -24,7 +24,7 @@ export default function ListCard({id, category, likeCount, name, poster_url, opt
     //Todo: 좋아요, 스크랩 반영해서 아이콘 색 바꾸기
     return(
         <div className="card" style={styles} onClick={() => {navigate(`/${category}/${id}`)}}>
-            <img src={poster_url} style={{width: '330px', minHeight: '200px', borderRadius: '10px', backgroundColor: 'rgb(210, 210, 210)', border: 'none'}}/>
+            <img src={posterUrl} style={{width: '330px', minHeight: '200px', borderRadius: '10px', backgroundColor: 'rgb(210, 210, 210)', border: 'none'}}/>
             <div className="btn-area" style={{display: 'flex', marginTop: '15px', flexDirection: 'row', alignItems: 'center'}}>
                 <span style={{fontSize: '14px', margin: '0 3px'}}>{likeCount}</span>
                 <img src={likeIcon} style={{width: '25px', marginRight: '5px'}} />
@@ -46,7 +46,7 @@ ListCard.propTypes = {
     category: PropTypes.string.isRequired,
     likeCount: PropTypes.string,
     name: PropTypes.string,
-    poster_url: PropTypes.string,
+    posterUrl: PropTypes.string,
     optional: PropTypes.string,
     emotionRating: PropTypes.number,
     aiReview: PropTypes.bool

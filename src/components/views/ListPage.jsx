@@ -21,36 +21,39 @@ export default function ListPage(){
     const [curCategory, setCurCategory] = useState('');
     const [spreadSort, setSpreadSort] = useState(false);
     const [sortOption, setSortOption] = useState('정렬 기준');
-    const [listSource, setListSource] = useState();
+    const [listSource, setListSorce] = useState();
+
+    const handleCategoryBtn = (category) => {setCurCategory(category); setListSorce([])}
 
     useEffect(()=>{
         if(category) {
-            if( category === 'movie' || category === 'hotel' || category === 'restaurant' ) setCurCategory(category);
+            if(category === 'movie' || category === 'hotel' || category === 'restaurant') setCurCategory(category);
             else navigate('/lists')
         }
-        //navigate('/lists', { replace: true })
     }, [navigate, category])
     useEffect(()=>{
-        if(category === 'movie') {
-            getMovieLists()
+        const jwtToken = sessionStorage.getItem('jwtToken');
+        if(curCategory === 'movie') {
+            getMovieLists(jwtToken)
             .then(res => {
-                setListSource(res.data)
+                if(typeof(res.data) === 'object' && res.data.length > 0) setListSorce(res.data)
             })
             .catch(err => console.error(err))
-        } else if (category === 'hotel') { 
-            getHotelLists()
+        } else if (curCategory === 'hotel') { 
+            getHotelLists(jwtToken)
             .then(res => {
-                setListSource(res.data)
+                if(typeof(res.data) === 'object' && res.data.length > 0) setListSorce(res.data)
             })
             .catch(err => console.error(err))
-        } else if (category === 'restaurant') {
-            getRestaurantLists()
+        } else if (curCategory === 'restaurant') {
+            getRestaurantLists(jwtToken)
             .then(res => {
-                setListSource(res.data)
+                if(typeof(res.data) === 'object' && res.data.length > 0) setListSorce(res.data)
+                console.log(res)
             })
             .catch(err => console.error(err))
         }
-    }, [category, curCategory])
+    }, [curCategory])
 
     const containerStyle = {
         width: "100%",
@@ -82,15 +85,15 @@ export default function ListPage(){
         <div className="list-page-container" style={containerStyle}>
             <div className="category-btns" style={{display: 'flex', flexDirection: 'row', alignItems: 'center', margin: '60px'}}>
                 <div className="movie">
-                    <div className={curCategory === 'movie' ? "selected-btn" : "category-btn"} onClick={() => {setCurCategory('movie')}} style={buttonStyle}><img src={movie} style={{width: "30px"}} /></div>
+                    <div className={curCategory === 'movie' ? "selected-btn" : "category-btn"} onClick={() => handleCategoryBtn('movie')} style={buttonStyle}><img src={movie} style={{width: "30px"}} /></div>
                     <div style={buttonFont}>영화</div>
                 </div>
                 <div className="hotel">
-                    <div className={curCategory === 'hotel' ? "selected-btn" : "category-btn"} onClick={() => {setCurCategory('hotel')}} style={buttonStyle}><img src={hotel} style={{width: "30px"}} /></div>
+                    <div className={curCategory === 'hotel' ? "selected-btn" : "category-btn"} onClick={() => handleCategoryBtn('hotel')} style={buttonStyle}><img src={hotel} style={{width: "30px"}} /></div>
                     <div style={buttonFont}>숙박</div>
                 </div>
                 <div className="restaurant">
-                    <div className={curCategory === 'restaurant' ? "selected-btn" : "category-btn"} onClick={() => {setCurCategory('restaurant')}} style={buttonStyle}><img src={restaurant} style={{width: "30px"}} /></div>
+                    <div className={curCategory === 'restaurant' ? "selected-btn" : "category-btn"} onClick={() => handleCategoryBtn('restaurant')} style={buttonStyle}><img src={restaurant} style={{width: "30px"}} /></div>
                     <div style={buttonFont}>식당</div>
                 </div>
             </div>
@@ -111,7 +114,7 @@ export default function ListPage(){
                     </div>
                 </div>
             </div>
-            {curCategory !== '' && ( curCategory === 'movie'? <ListMovie data={listSource} /> : <ListPlain data={listSource} category={curCategory} /> )}
+            {curCategory !== '' && listSource && ( curCategory === 'movie'? <ListMovie data={listSource} /> : <ListPlain data={listSource} category={curCategory} /> )}
         </div>
     )
 }
