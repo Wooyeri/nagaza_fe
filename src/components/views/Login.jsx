@@ -8,6 +8,7 @@ import google from "@/assets/google.svg"
 
 function Login() {
   const navigate = useNavigate();
+  const [showErrorMsg, setShowErrorMsg] = useState(false);
   const [form, setForm] = useState({
     id: '',
     password: '',
@@ -27,13 +28,24 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (form.id.trim() === '') {setForm((prev) => ({...prev, id: ''}))}
+    if (form.password.trim() === '') {setForm((prev) => ({...prev, id: ''}))}
+
     handleLogin(form)
     .then(res => {
-      if (res.status == 200) sessionStorage.setItem('jwtToken', (res.headers.authorization).split(' ')[1]);
-      navigate('/')
+      if (res.status == 200) {
+        setShowErrorMsg(false);
+        sessionStorage.setItem('jwtToken', (res.headers.authorization).split(' ')[1]);
+        navigate('/')
+      } else {
+        setShowErrorMsg(true);
+      }
       window.location.reload();
     })
-    .catch(e => console.error(e))
+    .catch(e => {
+      console.error(e);
+      setShowErrorMsg(true);
+    })
   };
 
   return (
@@ -50,6 +62,7 @@ function Login() {
               placeholder="ID"
               value={form.id}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -60,9 +73,11 @@ function Login() {
               placeholder="Password"
               value={form.password}
               onChange={handleChange}
+              required
             />
           </div>
         </div>
+        {showErrorMsg && <p style={{color: "red", marginTop: "0"}}>로그인 실패.</p>}
         <div className='submit-btn-container'><button type="submit" className="submit-button">Log In</button></div>
         <div className="google-btn">
           <button className="google-button" onClick={handleGoogleLogin}>

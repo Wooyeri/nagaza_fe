@@ -49,7 +49,6 @@ export default function ListPage(){
             getRestaurantLists(jwtToken)
             .then(res => {
                 if(typeof(res.data) === 'object' && res.data.length > 0) setListSorce(res.data)
-                console.log(res)
             })
             .catch(err => console.error(err))
         }

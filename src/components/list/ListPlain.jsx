@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import ListCard from "./card/ListCard"
 
 export default function ListPlain({data, category}){
-    console.log(data)
     const styles = {
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
