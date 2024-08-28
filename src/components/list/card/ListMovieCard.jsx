@@ -47,7 +47,7 @@ export default function ListMovieCard({id, likeCount, title, posterUrl, cast, re
                         <div>{reserRate}</div>
                         <div>{cast}</div>
                     </div>
-                    <EmotionGauge emotion_rating={emotionRating} />
+                    <EmotionGauge emotionRating={emotionRating} />
                 </div>
             </div>
         </div>
@@ -55,7 +55,7 @@ export default function ListMovieCard({id, likeCount, title, posterUrl, cast, re
 }
 
 ListMovieCard.propTypes = {
-    id: PropTypes.string,
+    id: PropTypes.number,
     likeCount: PropTypes.string,
     title: PropTypes.string,
     posterUrl: PropTypes.string,

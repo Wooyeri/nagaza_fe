@@ -32,17 +32,18 @@ export default function ListCard({likeCount, name, poster_url, optional, emotion
                 <img src={bookmarkIcon} style={{width: '25px', margin: '0 5px'}} />
                 {aiReview ? <img src={robotIcon} style={{width: '30px', margin: '0 5px'}}/> : <></>}
             </div>
-            <div className="contents">
+            <div className="contents" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                 <h3 style={{margin: '15px 0', fontWeight: '600', fontSize:'24px', color: '#111827'}}>{name}</h3>
                 <div style={{color: '#6D7280', marginBottom: '10px', fontSize: '16px'}}>
                     <div style={{fontFamily:'Microsoft GothicNeo'}}>{optional}</div>
                 </div>
-                <EmotionGauge emotion_rating={emotionRating} />
+                <EmotionGauge emotionRating={emotionRating} />
             </div>
         </div>
     )
 }
 ListCard.propTypes = {
+    id: PropTypes.number,
     likeCount: PropTypes.string,
     name: PropTypes.string,
     poster_url: PropTypes.string,

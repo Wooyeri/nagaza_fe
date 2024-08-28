@@ -1,24 +1,25 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from "react"
 
-export default function EmotionGauge({emotion_rating}){
+export default function EmotionGauge({emotionRating}){
     const [position, setPosition] = useState(0);
     const [emoji, setEmoji] = useState('');
     useEffect(()=>{
-        setPosition((emotion_rating - 5.54) + '%');
+        setPosition((emotionRating - 5.54) + '%');
 
-        if (emotion_rating >= 0 && emotion_rating < 20){
+        if (emotionRating == null) setEmoji('')
+        else if (emotionRating >= 0 && emotionRating < 20){
             setEmoji('😡');
-        } else if (emotion_rating < 40){
+        } else if (emotionRating < 40){
             setEmoji('😞');
-        } else if (emotion_rating < 60){
+        } else if (emotionRating < 60){
             setEmoji('😐');
-        } else if (emotion_rating < 80){
+        } else if (emotionRating < 80){
             setEmoji('😊');
-        } else if (emotion_rating <= 100){
+        } else if (emotionRating <= 100){
             setEmoji('😍');
         }
-    }, [emotion_rating])
+    }, [emotionRating])
 
     const gaugeBar = {
         display: 'flex',
@@ -34,5 +35,5 @@ export default function EmotionGauge({emotion_rating}){
     )
 }
 EmotionGauge.propTypes = {
-    emotion_rating: PropTypes.number
+    emotionRating: PropTypes.number
 }
