@@ -3,7 +3,7 @@ import "./button.css"
 import like from '@/assets/like_icon.svg';
 import bookmark from '@/assets/bookmark_icon.svg'
 import { useNavigate, useParams } from "react-router-dom";
-import ScrapList from "@/components/scrapList/ScrapList";
+import ScrapList from "@/components/myList/ScrapList";
 
 export default function MyLikeSaved(){
     const navigate = useNavigate();

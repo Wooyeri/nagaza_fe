@@ -9,8 +9,7 @@ function ScrapList() {
   const folders = [
       { name: 'movie', label: '나의 영화 목록' },
       { name: 'place', label: '나의 장소 목록' },
-      { name: 'restaurant', label: '나의 식음료 목록' },
-      { name: 'exhibition', label: '나의 전시 목록' },
+      { name: 'restaurant', label: '나의 식당 목록' }
   ];
   const listInFolder = [
     testHotel[0], testHotel[1]
