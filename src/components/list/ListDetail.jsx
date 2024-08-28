@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import PropTypes from 'prop-types'
 import EmotionGauge from "./card/EmotionGauge"
 
 import likeIcon from '@/assets/like_icon.svg'
@@ -12,7 +13,8 @@ import robotIcon from '@/assets/robot_icon.svg'
 import { testsummary } from "../testData"
 
 
-export default function ListDetail(){
+export default function ListDetail({content}){
+    console.log(content)
     const summaryTitleStyles = {
         display: "flex", flexDirection: "row", alignItems: "center", backgroundColor: "#A9EAFF", borderRadius: "5px",
         padding: "0 20px", width: "fit-content", maxWidth: "100%", marginBottom: "5px"
@@ -86,4 +88,7 @@ export default function ListDetail(){
             </div>
         </div>
     )
+}
+ListDetail.propTypes = {
+    content: PropTypes.object
 }

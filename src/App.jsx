@@ -19,7 +19,9 @@ function App() {
           <Route path='/login' element={<Login />}/>
           <Route path='/signup' element={<SignUp />}/>
           <Route path='/lists/:category?' element={<ListPage />}/>
-          <Route path='/lists/:category/:id' element={<DetailPage />}/>
+          <Route path='/movie/:id' element={<DetailPage category={'movie'} />}/>
+          <Route path='/hotel/:id' element={<DetailPage category={'hotel'} />}/>
+          <Route path='/restaurant/:id' element={<DetailPage category={'restaurant'} />}/>
           <Route path='/mypage/personal' element={<PersonalInfo />}/>
           <Route path='/mypage/mylists/:category?' element={<MyLikeSaved />}/>
           <Route path='*' element={<NotFound />}/>
