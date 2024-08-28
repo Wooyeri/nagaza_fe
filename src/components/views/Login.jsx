@@ -1,7 +1,10 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { handleLogin } from '../../services/accountServices';
+
 import "./common/inputForms.css"
 import google from "@/assets/google.svg"
-import { useNavigate } from 'react-router-dom';
+
 
 function Login() {
   const navigate = useNavigate();
@@ -26,10 +29,14 @@ function Login() {
     e.preventDefault();
     console.log('Form submitted:', form);
 
-    //Todo: 백엔드 연결
-    sessionStorage.setItem('jwtToken', "dummy")
-    navigate('/')
-    window.location.reload()
+    handleLogin(form)
+    .then(res => {
+      console.log(res);
+      //sessionStorage.setItem('jwtToken', "dummy")
+      //navigate('/')
+      //window.location.reload()
+    })
+    .catch(e => console.error(e))
   };
 
   return (
