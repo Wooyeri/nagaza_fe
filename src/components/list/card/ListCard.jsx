@@ -6,8 +6,7 @@ import bookmarkIcon from '@/assets/bookmark_icon.svg'
 import robotIcon from '@/assets/robot_icon.svg'
 import { useNavigate } from 'react-router-dom';
 
-export default function ListCard({likeCount, name, poster_url, optional, emotionRating, aiReview}){
-    const id = 'any'
+export default function ListCard({id, category, likeCount, name, poster_url, optional, emotionRating, aiReview}){
     const navigate = useNavigate();
     const styles = {
         display: 'flex',
@@ -24,7 +23,7 @@ export default function ListCard({likeCount, name, poster_url, optional, emotion
 
     //Todo: 좋아요, 스크랩 반영해서 아이콘 색 바꾸기
     return(
-        <div className="card" style={styles} onClick={() => {navigate(id)}}>
+        <div className="card" style={styles} onClick={() => {navigate(`/${category}/${id}`)}}>
             <img src={poster_url} style={{width: '330px', minHeight: '200px', borderRadius: '10px', backgroundColor: 'rgb(210, 210, 210)', border: 'none'}}/>
             <div className="btn-area" style={{display: 'flex', marginTop: '15px', flexDirection: 'row', alignItems: 'center'}}>
                 <span style={{fontSize: '14px', margin: '0 3px'}}>{likeCount}</span>
@@ -43,7 +42,8 @@ export default function ListCard({likeCount, name, poster_url, optional, emotion
     )
 }
 ListCard.propTypes = {
-    id: PropTypes.number,
+    id: PropTypes.number.isRequired,
+    category: PropTypes.string.isRequired,
     likeCount: PropTypes.string,
     name: PropTypes.string,
     poster_url: PropTypes.string,
