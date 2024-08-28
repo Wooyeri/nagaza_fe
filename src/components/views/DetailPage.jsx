@@ -18,31 +18,32 @@ export default function DetailPage({ category }){
         margin: "50px 0"
     }
     useEffect(() => {
+        const token = sessionStorage.getItem('jwtToken');
         if(category === 'movie') {
-            getMovieDetails(id)
+            getMovieDetails(token, id)
             .then(res => {
                 setContents(res.data)
             })
             .catch(err => console.error(err))
         } else if (category === 'hotel') { 
-            getHotelDetails(id)
+            getHotelDetails(token, id)
             .then(res => {
                 setContents(res.data)
             })
             .catch(err => console.error(err))
         } else if (category === 'restaurant') {
-            getRestaurantDetails(id)
+            getRestaurantDetails(token, id)
             .then(res => {
                 setContents(res.data)
             })
             .catch(err => console.error(err))
         }
-    })
+    }, [category, id])
 
     return(
         <div style={containerStyle}>
             <CategoryLinkButtons />
-            <ListDetail category={category} contents={contents} />
+            {contents && <ListDetail category={category} contents={contents} />}
         </div>
     )
 }

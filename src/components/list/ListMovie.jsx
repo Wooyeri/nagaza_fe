@@ -12,7 +12,7 @@ export default function ListMovie({data}){
     return(
         <div className="card-list" style={styles}>
             {data && data.map((movie) => 
-                <ListMovieCard key={Number(movie.id)} id={movie.id} likeCount={movie.likeCount} title={movie.title} posterUrl={movie.posterUrl} cast={movie.cast} reserRate={movie.genre} emotionRating={movie.emotionRating ? Number(movie.emotionRating) : null} aiReview={!(movie.emotionRating == null)}/>
+                <ListMovieCard key={Number(movie.id)} id={movie.id} likeCount={movie.likeCount} title={movie.title} posterUrl={movie.posterUrl} cast={movie.cast} reserRate={movie.genre} emotionRating={movie.emotionRating ? Number(movie.emotionRating) : null} aiReview={movie.emotionRating != null}/>
             )}
         </div>
     )
