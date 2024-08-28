@@ -85,7 +85,7 @@ export default function ListPage(){
                     </div>
                 </div>
             </div>
-            {curCategory === 'movie'? <ListMovie data={testMovie} /> : <ListPlain data={testHotel} />}
+            {curCategory !== '' && ( curCategory === 'movie'? <ListMovie data={testMovie} /> : <ListPlain data={testHotel} /> )}
         </div>
     )
 }

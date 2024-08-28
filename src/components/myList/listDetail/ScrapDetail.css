@@ -1,4 +1,4 @@
-.scraped-post {
+.mylist-post {
   display: flex;
   flex-direction: row;
   margin: 1.5rem 0;
@@ -7,10 +7,10 @@
   border-radius: 5px;
   cursor: pointer;
 }
-.scraped-post:hover {
+.mylist-post:hover {
   background-color: #e4e4e4;
 }
-.scraped-post .scraped-post-image {
+.mylist-post .mylist-post-image {
   min-width: 20rem;
   max-width: 25rem;
   min-height: 16rem;
@@ -19,35 +19,35 @@
   margin-right: 2rem;
 }
 
-.scraped-post-content {
+.mylist-post-content {
   padding: 1rem;
 }
-.scraped-post-content h2 {
+.mylist-post-content h2 {
   margin-top: 0;
 }
-.scraped-post-content .scraped-post-icons {
+.mylist-post-content .mylist-post-icons {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.scraped-post-content .scraped-post-icons span {
+.mylist-post-content .mylist-post-icons span {
   margin-right: 0.1rem;
 }
-.scraped-post-content .scraped-post-icons img {
+.mylist-post-content .mylist-post-icons img {
   margin-right: 0.5rem;
   width: 1.7rem;
 }
-.scraped-post-content .scraped-post-icons .robot {
+.mylist-post-content .mylist-post-icons .robot {
   width: 2rem;
 }
 
-.scraped-post-content .description{
+.mylist-post-content .description{
   margin-top: 1.2rem;
   line-height: 1.5rem;
   max-width: 20rem;
 }
 
-.scraped-post-container .divider {
+.mylist-post-container .divider {
   width: 100%;
   height: 2px;
   background: #E6E8EC;
