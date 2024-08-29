@@ -22,29 +22,9 @@ export default function MyLikeSaved(){
         navigate('/mypage/mylists', { replace: true })
     }, [navigate, category])
 
-    const containerStyle = {
-        width: "100%",
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        marginBottom: "100px"
-    };
-    const buttonStyle = {
-        width: '60px',
-        height: '60px',
-        borderRadius: '50px',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        cursor: 'pointer',
-        margin: '0 60px'
-    };
-    const buttonFont = {
-        textAlign: 'center',
-        fontWeight: 'extra bold',
-        fontSize: '16px',
-        margin: '15px'
-    };
+    const containerStyle = { width: "100%", display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: "100px" };
+    const buttonStyle = { width: '60px', height: '60px', borderRadius: '50px', display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer', margin: '0 60px' };
+    const buttonFont = { textAlign: 'center', fontWeight: 'extra bold', fontSize: '16px', margin: '15px' };
     return(
         <div style={containerStyle}>
             <div className="category-btns" style={{display: 'flex', flexDirection: 'row', alignItems: 'center', margin: '60px'}}>

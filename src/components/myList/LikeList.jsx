@@ -3,6 +3,7 @@ import LikeDetail from './listDetail/LikeDetail';
 import { testHotel } from '../testData';
 
 export default function LikeList() {
+  //Todo: BE에서 가져오기
   const likeLists = [
     testHotel[0], testHotel[1]
   ]

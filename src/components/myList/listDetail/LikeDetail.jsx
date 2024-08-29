@@ -1,33 +1,40 @@
 import PropTypes from 'prop-types';
-import like from '@/assets/like_icon.svg';
-//import like_filled from '@/assets/like_red.svg';
-import bookmark from '@/assets/bookmark_icon.svg';
-//import bookmark_filled from '@/assets/bookmark_yellow.svg';
+import likeIcon from '@/assets/like_icon.svg'
+import likeIconFilled from '@/assets/like_red.svg'
+import bookmarkIcon from '@/assets/bookmark_icon.svg'
+import bookmarkIconFilled from '@/assets/bookmark_yellow.svg'
 import robot_icon from '@/assets/robot_icon.svg';
 import './mylistDetail.css';
 import { useEffect, useState } from 'react';
 
-export default function LikeDetail({ contents }) { // 기본값으로 빈 배열 설정
+export default function LikeDetail({ contents }) {
     const [desc, setDesc] = useState('');
+    const [filLike, setFillLike] = useState(false);
+    const [fillBookmark, setFillBookmark] = useState(false);
+
+    const handleLikeIcon = () => setFillLike(!filLike);
+    const handleBookmarkIcon = () => setFillBookmark(!fillBookmark);
+
     useEffect(() => {
-        var str = '댓글은 영화에 대한 긍정적인 반응과 부정적인 반응이 혼재되어 있습니다. 긍정적인 부분은 영화의 재미, 크리처물과 AI의 조합, 배우들의 연기력, 연출 등에 대한 칭찬입니다. 특히 "재밌게 봤네요 추천합니다", "못참 지", "재밌고 볼 거리 있었다", "상상력의 끝은 어디인가", "잘만들어엇요 그리고연출하시는 분들도 잘햇어요" 와 같은 긍정적인 표현이 두드러집니다. 반면, "발암과 서스펜스", "계집애로 만듬" 등의 표현에서 알 수 있듯이, 여성 캐릭터에 대한 묘사와 영화 내용에 대한 비판적인 의견도 존재합니다. 전반적으로 영화에 대한 호불호가 갈리는 것을 알 수 있습니다.'
+        var str = 'Get from BE...'
         if(str.length > 70) setDesc(str.slice(0, 71) + '...');
         else setDesc(str)
     }, [])
+
   return (
     <div className="mylist-post-container">
         <div className='mylist-post'>
-            <img src={contents.poster_url} alt={contents.title} className="mylist-post-image" />
+            <img src={contents.posterUrl} alt='representative image' className="mylist-post-image" />
             <div className="mylist-post-content">
-                <h2 className="mylist-post-title">{contents.title}</h2>
+                <h2 className="mylist-post-title">{contents.title ? contents.title : contents.name}</h2>
                 <div className="mylist-post-icons">
                     <span>{contents.likes}</span>
-                    <img src={like} alt='heart-icon' />
-                    <img src={bookmark} alt='bookmark-icon' />
-                    {JSON.parse(contents.ai_review) ? <img className='robot' src={robot_icon} alt='robot-icon' /> : <></>}
+                    <img src={filLike ? likeIconFilled : likeIcon} onMouseOver={handleLikeIcon} onMouseOut={handleLikeIcon} alt='heart-icon' style={{cursor: "pointer"}} />
+                    <img src={fillBookmark ? bookmarkIconFilled : bookmarkIcon} onMouseOver={handleBookmarkIcon} onMouseOut={handleBookmarkIcon} alt='bookmark-icon' style={{cursor: "pointer"}} />
+                    {<img className='robot' src={robot_icon} alt='robot-icon' />}{/**TODO: 요약 유무 반영 */}
                 </div>
                 <div className="description">
-                    {JSON.parse(contents.ai_review) && desc}
+                    {desc}{/**TODO: 요약 기입*/}
                 </div>
             </div>
         </div>
@@ -39,10 +46,10 @@ export default function LikeDetail({ contents }) { // 기본값으로 빈 배열
 // Add PropTypes validation
 LikeDetail.propTypes = {
   contents: PropTypes.shape({
-      id: PropTypes.number,
-      title: PropTypes.string.isRequired,
-      likes: PropTypes.string.isRequired,
-      poster_url: PropTypes.string.isRequired,
-      ai_review: PropTypes.string
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string,
+        title: PropTypes.string,
+        likes: PropTypes.string,
+        posterUrl: PropTypes.string,
     })
 };

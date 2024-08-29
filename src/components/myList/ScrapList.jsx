@@ -11,6 +11,7 @@ function ScrapList() {
       { name: 'place', label: '나의 장소 목록' },
       { name: 'restaurant', label: '나의 식당 목록' }
   ];
+    //Todo: BE에서 가져오기
   const listInFolder = [
     testHotel[0], testHotel[1]
   ]
