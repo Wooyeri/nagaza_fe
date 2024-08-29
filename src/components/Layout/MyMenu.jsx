@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import './MyMenu.css';
-import person from '@/assets/person.svg';
-import like from '@/assets/like_gray.svg';
-import bookmark from '@/assets/bookmark_gray.svg';
-import lightbulb from '@/assets/lightbulb.svg';
-import logout from '@/assets/logout.svg';
+import person from '@/assets/img/person.svg';
+import like from '@/assets/img/like_gray.svg';
+import bookmark from '@/assets/img/bookmark_gray.svg';
+import lightbulb from '@/assets/img/lightbulb.svg';
+import logout from '@/assets/img/logout.svg';
 import { useNavigate } from 'react-router-dom';
 
 export default function MyMenu({ showDropdown, setShowDropdown }) {

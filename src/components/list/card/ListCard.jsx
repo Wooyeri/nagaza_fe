@@ -3,11 +3,11 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import './card.css'
 import EmotionGauge from "./EmotionGauge"
-import likeIcon from '@/assets/like_icon.svg'
-import likeIconFilled from '@/assets/like_red.svg'
-import bookmarkIcon from '@/assets/bookmark_icon.svg'
-import bookmarkIconFilled from '@/assets/bookmark_yellow.svg'
-import robotIcon from '@/assets/robot_icon.svg'
+import likeIcon from '@/assets/img/like_icon.svg'
+import likeIconFilled from '@/assets/img/like_red.svg'
+import bookmarkIcon from '@/assets/img/bookmark_icon.svg'
+import bookmarkIconFilled from '@/assets/img/bookmark_yellow.svg'
+import robotIcon from '@/assets/img/robot_icon.svg'
 
 export default function ListCard({id, category, likeCount, name, posterUrl, optional, emotionRating, aiReview}){
     const navigate = useNavigate();

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./common/button.css"
-import like from '@/assets/like_icon.svg';
-import bookmark from '@/assets/bookmark_icon.svg'
+import like from '@/assets/img/like_icon.svg';
+import bookmark from '@/assets/img/bookmark_icon.svg'
 import { useNavigate, useParams } from "react-router-dom";
 import ScrapList from "@/components/myList/ScrapList";
 import LikeList from "../myList/LikeList";

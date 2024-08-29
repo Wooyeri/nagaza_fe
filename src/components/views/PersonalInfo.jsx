@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import "./common/button.css"
-import avatar from "@/assets/avatar.svg"
+import avatar from "@/assets/img/avatar.svg"
 import { useNavigate } from "react-router-dom"
 
 export default function PersonalInfo(){

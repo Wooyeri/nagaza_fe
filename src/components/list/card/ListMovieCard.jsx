@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import EmotionGauge from './EmotionGauge';
 import './card.css'
-import likeIcon from '@/assets/like_icon.svg'
-import likeIconFilled from '@/assets/like_red.svg'
-import bookmarkIcon from '@/assets/bookmark_icon.svg'
-import bookmarkIconFilled from '@/assets/bookmark_yellow.svg'
-import robotIcon from '@/assets/robot_icon.svg'
+import likeIcon from '@/assets/img/like_icon.svg'
+import likeIconFilled from '@/assets/img/like_red.svg'
+import bookmarkIcon from '@/assets/img/bookmark_icon.svg'
+import bookmarkIconFilled from '@/assets/img/bookmark_yellow.svg'
+import robotIcon from '@/assets/img/robot_icon.svg'
 
 export default function ListMovieCard({id, likeCount, title, posterUrl, cast, reserRate ,emotionRating, aiReview}){
     const navigate = useNavigate();

@@ -2,11 +2,11 @@ import { useEffect, useState } from "react"
 import PropTypes from 'prop-types'
 import EmotionGauge from "./card/EmotionGauge"
 
-import likeIcon from '@/assets/like_icon.svg'
-import likeIconFilled from '@/assets/like_red.svg'
-import bookmarkIcon from '@/assets/bookmark_icon.svg'
-import bookmarkIconFilled from '@/assets/bookmark_yellow.svg'
-import robotIcon from '@/assets/robot_icon.svg'
+import likeIcon from '@/assets/img/like_icon.svg'
+import likeIconFilled from '@/assets/img/like_red.svg'
+import bookmarkIcon from '@/assets/img/bookmark_icon.svg'
+import bookmarkIconFilled from '@/assets/img/bookmark_yellow.svg'
+import robotIcon from '@/assets/img/robot_icon.svg'
 
 // Todo: 좋아요, 스크랩 여부 확인해서 그림 바꾸기
 

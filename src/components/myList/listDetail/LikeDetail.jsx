@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import likeIcon from '@/assets/like_icon.svg'
-import likeIconFilled from '@/assets/like_red.svg'
-import bookmarkIcon from '@/assets/bookmark_icon.svg'
-import bookmarkIconFilled from '@/assets/bookmark_yellow.svg'
-import robot_icon from '@/assets/robot_icon.svg';
+import likeIcon from '@/assets/img/like_icon.svg'
+import likeIconFilled from '@/assets/img/like_red.svg'
+import bookmarkIcon from '@/assets/img/bookmark_icon.svg'
+import bookmarkIconFilled from '@/assets/img/bookmark_yellow.svg'
+import robot_icon from '@/assets/img/robot_icon.svg';
 import './mylistDetail.css';
 import { useEffect, useState } from 'react';
 

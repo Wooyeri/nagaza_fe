@@ -1,6 +1,6 @@
-import movie from "@/assets/movie.svg"
-import hotel from "@/assets/hotel.svg"
-import restaurant from "@/assets/restaurant.svg"
+import movie from "@/assets/img/movie.svg"
+import hotel from "@/assets/img/hotel.svg"
+import restaurant from "@/assets/img/restaurant.svg"
 import "./button.css"
 import { Link } from "react-router-dom"
 
