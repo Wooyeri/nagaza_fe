@@ -33,9 +33,10 @@ export default function ListDetail({category, contents}){
     const handleLikeIcon = () => setFillLike(!filLike);
     const handleBookmarkIcon = () => setFillBookmark(!fillBookmark);
 
-    const descStyles = { margin: "0.5em 0", maxWidth: "100%" };
     const posterStyles = { maxWidth: "26rem", minWidth: "18rem", minHeight: "18rem", maxHeight: "24rem", borderRadius: "3px" };
     const btnAreaStyles = { display: 'flex', marginTop: '15px', flexDirection: 'row', alignItems: 'center' };
+    const titleStyles = {fontWeight: '600', fontSize: '36px', maxWidth: "24rem", lineHeight: '150%', color: "#111827"}
+    const descStyles = { margin: "0.5em 0", maxWidth: "26rem" };
     const summaryTitleStyles = { display: "flex", flexDirection: "row", alignItems: "center", backgroundColor: "#A9EAFF", borderRadius: "5px", padding: "0 20px", width: "fit-content", maxWidth: "100%", marginBottom: "5px" };
     const reviewBoxStyles = { backgroundColor: "#EFF9FB", padding: "20px", borderRadius: "5px", maxWidth: "70em", lineHeight: "1.6" };
 
@@ -73,7 +74,7 @@ export default function ListDetail({category, contents}){
                         <img src={filLike ? likeIconFilled : likeIcon} onMouseOver={handleLikeIcon} onMouseOut={handleLikeIcon} style={{width: '25px', marginRight: '5px', cursor: "pointer"}} />
                         <img src={fillBookmark ? bookmarkIconFilled : bookmarkIcon} onMouseOver={handleBookmarkIcon} onMouseOut={handleBookmarkIcon} style={{width: '25px', margin: '0 5px', cursor: "pointer"}} />
                     </div>
-                    <h1 style={{fontWeight: '600', fontSize: '36px', lineHeight: '150%', color: "#111827"}}>{title}</h1>
+                    <h1 style={titleStyles}>{title}</h1>
                     <div className="contents" style={{marginBottom: '30px'}}>
                         <p style={descStyles}>{desc1}</p>
                         {desc2 && <p style={descStyles}>{desc2}</p>}

@@ -17,9 +17,10 @@ export default function ListCard({id, category, likeCount, name, posterUrl, opti
     const handleLikeIcon = () => setFillLike(!filLike);
     const handleBookmarkIcon = () => setFillBookmark(!fillBookmark);
 
-    const containerStyles = { display: 'flex', padding: '15px 0', width: "400px", minHeight: "410px", boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2)", borderRadius: "10px", textAlign: 'center', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' };
+    const containerStyles = { display: 'flex', padding: '1rem 0.3rem', width: "400px", minHeight: "410px", boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2)", borderRadius: "10px", textAlign: 'center', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' };
     const posterStyles = { width: '330px', minHeight: '200px', borderRadius: '10px', backgroundColor: 'rgb(210, 210, 210)', border: 'none' };
     const btnAreaStyles = { display: 'flex', marginTop: '15px', flexDirection: 'row', alignItems: 'center' };
+    const titleStyles = {margin: '15px 0', fontWeight: '600', fontSize:'24px', color: '#111827'}
 
     //Todo: 좋아요, 스크랩 반영해서 아이콘 색 바꾸기
     return(
@@ -32,7 +33,7 @@ export default function ListCard({id, category, likeCount, name, posterUrl, opti
                 {aiReview ? <img src={robotIcon} style={{width: '30px', margin: '0 5px'}}/> : <></>}
             </div>
             <div className="contents" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                <h3 style={{margin: '15px 0', fontWeight: '600', fontSize:'24px', color: '#111827'}}>{name}</h3>
+                <h3 style={titleStyles}>{name}</h3>
                 <div style={{color: '#6D7280', marginBottom: '10px', fontSize: '16px'}}>
                     <div style={{fontFamily:'Microsoft GothicNeo'}}>{optional}</div>
                 </div>
