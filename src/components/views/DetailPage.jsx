@@ -1,10 +1,9 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import PropTypes from 'prop-types';
 import ListDetail from "@/components/list/ListDetail"
 import CategoryLinkButtons from "./common/CategoryLinkButtons"
-import { useEffect, useState } from "react";
-import { getMovieDetails, getHotelDetails, getRestaurantDetails } from "../../services/listServices";
-
+import { getMovieDetails, getHotelDetails, getRestaurantDetails } from "@/services/listServices";
 
 export default function DetailPage({ category }){
     const { id } = useParams();
@@ -43,7 +42,7 @@ export default function DetailPage({ category }){
     return(
         <div style={containerStyle}>
             <CategoryLinkButtons />
-            {contents && <ListDetail category={category} contents={contents} />}
+            {contents && <ListDetail category={category} contents={contents} id={id} />}
         </div>
     )
 }

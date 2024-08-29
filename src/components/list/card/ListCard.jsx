@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import EmotionGauge from "./EmotionGauge"
+import EmotionGauge from './EmotionGauge';
 import { checkLike, handleLikeClick } from '@/utils/like';
+
 import './card.css'
 import likeIcon from '@/assets/like_icon.svg'
 import likeIconFilled from '@/assets/like_red.svg'
