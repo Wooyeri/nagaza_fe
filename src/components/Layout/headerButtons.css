@@ -1,0 +1,18 @@
+.header-btn{
+    padding: 8px 0;
+    border-radius: 5px;
+    width: 80px;
+    cursor: pointer;
+    margin: 0 15px;
+}
+.header-btn.signup{
+    background-color: rgba(0,0,0,0);
+    color: #1F1BDA;
+}
+.header-btn.login{
+    background-color: #FFF;
+    border: none;
+}
+.header-btn.signup:hover, .header-btn.login:hover{
+    background-color: #00c3ffb4;
+}
