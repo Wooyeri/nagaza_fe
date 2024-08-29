@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import "./common/inputForms.css";
-import google from '@/assets/google.svg';
+import google from '@/assets/img/google.svg';
 import { handleSignUP } from '@/services/accountServices';
 import { useNavigate } from 'react-router-dom';
 

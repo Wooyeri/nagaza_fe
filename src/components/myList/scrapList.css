@@ -61,7 +61,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #333;
     text-align: center; 
     margin: 0 10px;
     padding: 0 0.5rem;
@@ -71,14 +70,19 @@
 .folder:hover, .folder.selected{
   background-color: #e4e4e4;
 }
+.folder.dark {
+    color: #d3d3d3;
+}
+.folder.dark:hover, .folder.dark.selected {
+    color: #212121;
+}
+
 .folder p {
   margin-top: 10px;
   font-size: 1.2em;
-  color: #333;
 }
-.folder a {
-  text-decoration: none; 
-  color: inherit; 
+.folder.plain p {
+    color: #333;
 }
 .folder span {
     font-size: 3em;

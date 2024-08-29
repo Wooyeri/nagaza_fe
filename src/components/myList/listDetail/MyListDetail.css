@@ -7,6 +7,12 @@
   border-radius: 5px;
   cursor: pointer;
 }
+.mylist-post.plain {
+  background-color: #ffffff;
+}
+.mylist-post.dark {
+  background-color: #c0c0c0;
+}
 .mylist-post:hover {
   background-color: #e4e4e4;
 }

@@ -1,17 +1,19 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import PropTypes from 'prop-types'
 import EmotionGauge from "./card/EmotionGauge"
+import { ThemeContext } from '@/common/Context';
+import { checkLike, handleLikeClick } from '@/utils/like';
 
-import likeIcon from '@/assets/like_icon.svg'
-import likeIconFilled from '@/assets/like_red.svg'
-import bookmarkIcon from '@/assets/bookmark_icon.svg'
-import bookmarkIconFilled from '@/assets/bookmark_yellow.svg'
-import robotIcon from '@/assets/robot_icon.svg'
+import { lightPallete, darkPallete } from "@/assets/pallete";
+import likeIcon from '@/assets/img/like_icon.svg'
+import likeIconFilled from '@/assets/img/like_red.svg'
+import bookmarkIcon from '@/assets/img/bookmark_icon.svg'
+import bookmarkIconFilled from '@/assets/img/bookmark_yellow.svg'
+import robotIcon from '@/assets/img/robot_icon.svg'
 
-// Todo: 좋아요, 스크랩 여부 확인해서 그림 바꾸기
-
-export default function ListDetail({category, contents}){
-    const [filLike, setFillLike] = useState(false);
+export default function ListDetail({category, contents, id}){
+    const { darkMode } = useContext(ThemeContext);
+    const [fillLike, setFillLike] = useState(false);
     const [fillBookmark, setFillBookmark] = useState(false);
 
     const [likes, setLikes] = useState(0);
@@ -30,17 +32,18 @@ export default function ListDetail({category, contents}){
         if (randomIdx < 0) randomIdx = 0;
         return review[randomIdx]
     }
-    const handleLikeIcon = () => setFillLike(!filLike);
-    const handleBookmarkIcon = () => setFillBookmark(!fillBookmark);
-
-    const posterStyles = { maxWidth: "26rem", minWidth: "18rem", minHeight: "18rem", maxHeight: "24rem", borderRadius: "3px" };
-    const btnAreaStyles = { display: 'flex', marginTop: '15px', flexDirection: 'row', alignItems: 'center' };
-    const titleStyles = {fontWeight: '600', fontSize: '36px', maxWidth: "24rem", lineHeight: '150%', color: "#111827"}
-    const descStyles = { margin: "0.5em 0", maxWidth: "26rem" };
-    const summaryTitleStyles = { display: "flex", flexDirection: "row", alignItems: "center", backgroundColor: "#A9EAFF", borderRadius: "5px", padding: "0 20px", width: "fit-content", maxWidth: "100%", marginBottom: "5px" };
-    const reviewBoxStyles = { backgroundColor: "#EFF9FB", padding: "20px", borderRadius: "5px", maxWidth: "70em", lineHeight: "1.6" };
+    const handleLikeBtn = () => setFillLike(!fillLike);
+    const handleBookmarkBtn = () => setFillBookmark(!fillBookmark);
+    const handleLikeBtnClick = () => {;
+        handleLikeClick(category, id).then(data => { if(data) console.log('success!'); });
+    };
+    const handleBookmarkBtnClick = () => {
+        //
+    };
 
     useEffect(() => {
+        checkLike(category, id).then(data => {if (typeof(data) == 'boolean') setFillLike(data)});
+
         setLikes(contents.likeCount);
         setAiReview(contents.emotionRating != null);
         setEmotionRating(contents.emotionRating);
@@ -53,7 +56,6 @@ export default function ListDetail({category, contents}){
 
         if(contents.review) setReview(contents.review);
 
-        // 카테고리 종류 마다 구분 필요
         if(category == 'movie'){
             setDesc1(`감독: ${contents.director}`);
             setDesc2(`캐스팅: ${contents.cast}`);
@@ -64,15 +66,23 @@ export default function ListDetail({category, contents}){
             setDesc1(contents.foodType)
     }, []);
 
+    const descContainerStyles = { display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center", padding: "1rem", borderRadius: "4px", backgroundColor: darkMode ? darkPallete.lighterBackground : lightPallete.background };
+    const posterStyles = { maxWidth: "26rem", minWidth: "18rem", minHeight: "18rem", maxHeight: "24rem", borderRadius: "3px" };
+    const btnAreaStyles = { display: 'flex', marginTop: '15px', flexDirection: 'row', alignItems: 'center' };
+    const titleStyles = {fontWeight: '600', fontSize: '36px', maxWidth: "24rem", lineHeight: '150%', color: "#111827"}
+    const descStyles = { margin: "0.5em 0", maxWidth: "26rem" };
+    const summaryTitleStyles = { display: "flex", flexDirection: "row", alignItems: "center", backgroundColor: "#A9EAFF", borderRadius: "5px", padding: "0 20px", width: "fit-content", maxWidth: "100%", marginBottom: "5px" };
+    const reviewBoxStyles = { backgroundColor: darkMode ? darkPallete.merelyBlue : lightPallete.merelyBlue, padding: "20px", borderRadius: "5px", maxWidth: "70em", lineHeight: "1.6" };
+
     return(
         <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-            <div className="description" style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
+            <div className="description" style={descContainerStyles}>
                 <div><img src={posterUrl} style={posterStyles}/></div>
                 <div style={{margin: "10px 50px", marginRight: "0", width: "50%"}}>
                     <div className="btn-area" style={btnAreaStyles}>
                         <span style={{fontSize: '14px', margin: '0 3px'}}>{likes}</span>
-                        <img src={filLike ? likeIconFilled : likeIcon} onMouseOver={handleLikeIcon} onMouseOut={handleLikeIcon} style={{width: '25px', marginRight: '5px', cursor: "pointer"}} />
-                        <img src={fillBookmark ? bookmarkIconFilled : bookmarkIcon} onMouseOver={handleBookmarkIcon} onMouseOut={handleBookmarkIcon} style={{width: '25px', margin: '0 5px', cursor: "pointer"}} />
+                        <img src={fillLike ? likeIconFilled : likeIcon} onClick={handleLikeBtnClick} onMouseOver={handleLikeBtn} onMouseOut={handleLikeBtn} style={{width: '25px', marginRight: '5px', cursor: "pointer"}} />
+                        <img src={fillBookmark ? bookmarkIconFilled : bookmarkIcon} onClick={handleBookmarkBtnClick} onMouseOver={handleBookmarkBtn} onMouseOut={handleBookmarkBtn} style={{width: '25px', margin: '0 5px', cursor: "pointer"}} />
                     </div>
                     <h1 style={titleStyles}>{title}</h1>
                     <div className="contents" style={{marginBottom: '30px'}}>
@@ -105,5 +115,6 @@ export default function ListDetail({category, contents}){
 }
 ListDetail.propTypes = {
     category: PropTypes.string,
-    contents: PropTypes.object
+    contents: PropTypes.object,
+    id: PropTypes.string
 }

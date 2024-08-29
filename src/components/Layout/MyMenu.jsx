@@ -1,16 +1,19 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-import './MyMenu.css';
-import person from '@/assets/person.svg';
-import like from '@/assets/like_gray.svg';
-import bookmark from '@/assets/bookmark_gray.svg';
-import lightbulb from '@/assets/lightbulb.svg';
-import logout from '@/assets/logout.svg';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { ThemeContext } from '@/common/Context';
+import './MyMenu.css';
+
+import person from '@/assets/img/person.svg';
+import like from '@/assets/img/like_gray.svg';
+import bookmark from '@/assets/img/bookmark_gray.svg';
+import lightbulb from '@/assets/img/lightbulb.svg';
+import logout from '@/assets/img/logout.svg';
 
 export default function MyMenu({ showDropdown, setShowDropdown }) {
+  const { toggleDarkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
-  const [darkTheme, setDarkTheme] = useState(false);
+  const [darkModeOn, setDarkModeOn] = useState(false);
 
   const handleLogout = () => {
     sessionStorage.removeItem('jwtToken');
@@ -50,7 +53,7 @@ export default function MyMenu({ showDropdown, setShowDropdown }) {
             <div className='text'>다크 테마</div>
           </div>
           <div className='slider-wrapper'>
-            <div className={`slider ${darkTheme ? 'on' : 'off'}`} onClick={() => {setDarkTheme(!darkTheme)}}><div className='ball'></div></div>
+            <div className={`slider ${darkModeOn ? 'on' : 'off'}`} onClick={() => {setDarkModeOn(!darkModeOn); toggleDarkMode()}}><div className='ball'></div></div>
           </div>
         </li>
         <div className='divider'></div>

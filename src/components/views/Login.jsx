@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { handleLogin } from '../../services/accountServices';
 
 import "./common/inputForms.css"
-import google from "@/assets/google.svg"
+import google from "@/assets/img/google.svg"
 
 
 function Login() {
