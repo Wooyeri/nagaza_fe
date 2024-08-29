@@ -29,6 +29,10 @@ export default function ListCard({id, category, likeCount, name, posterUrl, opti
         } else navigate(`/${category}/${id}`);
     }
 
+    useEffect(() => {
+        checkLike(category, id).then(data => {if (typeof(data) == 'boolean') setFillLike(data)});
+    }, [category, id])
+
     const containerStyles = { display: 'flex', padding: '1rem 0.3rem', width: "400px", minHeight: "410px", boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2)", borderRadius: "10px", textAlign: 'center', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' };
     const posterStyles = { width: '330px', minHeight: '200px', borderRadius: '10px', backgroundColor: 'rgb(210, 210, 210)', border: 'none' };
     const btnAreaStyles = { display: 'flex', marginTop: '15px', flexDirection: 'row', alignItems: 'center' };
