@@ -107,8 +107,8 @@ export default function ListPage(){
                     </div>
                     <div style={sortOptionStyles} hidden={spreadSort ? false : true}>
                         <ul className = "sort-list" style={{listStyle: 'none', padding: '0', textAlign: 'center'}}>
-                            <li onClick={() => {setSortOption('좋아요 순')}}>좋아요 순</li>
-                            <li onClick={() => {setSortOption('이름 순')}}>이름 순</li>
+                            <li onClick={() => {setSortOption('좋아요 순'); setSpreadSort(false)}}>좋아요 순</li>
+                            <li onClick={() => {setSortOption('이름 순'); setSpreadSort(false)}}>이름 순</li>
                         </ul>
                     </div>
                 </div>
