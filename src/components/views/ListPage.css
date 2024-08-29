@@ -19,6 +19,9 @@
     border-radius: 5px;
     cursor: pointer;
 }
-.sort-list li:hover{
+.plain .sort-list li:hover{
     background-color: rgb(219, 219, 219);
+}
+.dark .sort-list li:hover{
+    background-color: rgb(109, 109, 109);
 }
