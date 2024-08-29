@@ -1,26 +1,19 @@
+import { useContext } from "react"
+import { Link } from "react-router-dom"
+import { ThemeContext } from '@/common/Context';
+
+import { lightPallete, darkPallete } from "@/assets/pallete"
 import movie from "@/assets/img/movie.svg"
 import hotel from "@/assets/img/hotel.svg"
 import restaurant from "@/assets/img/restaurant.svg"
 import "./button.css"
-import { Link } from "react-router-dom"
 
 export default function CategoryLinkButtons(){
-    const buttonStyle = {
-        width: '60px',
-        height: '60px',
-        borderRadius: '50px',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        cursor: 'pointer',
-        margin: '0 60px'
-    }
-    const buttonFont = {
-        textAlign: 'center',
-        fontWeight: 'extra bold',
-        fontSize: '16px',
-        margin: '15px'
-    }
+    const { darkMode } = useContext(ThemeContext);
+
+    const buttonStyle = { width: '60px', height: '60px', borderRadius: '50px', display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer', margin: '0 60px' };
+    const buttonFont = { textAlign: 'center', fontWeight: 'extra bold', fontSize: '16px', margin: '15px', color: darkMode ? darkPallete.plainText : lightPallete.plainText };
+
     return(
         <div className="category-btns" style={{display: 'flex', flexDirection: 'row', alignItems: 'center', margin: '60px'}}>
             <div className="movie">
