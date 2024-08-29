@@ -2,17 +2,17 @@ import axios from "axios";
 
 const ACCOUNT_BASE_URL = import.meta.env.VITE_API_URL;
 
-export const handleLogin = ({id, password}) => axios.post('/login', {
+export const handleLogin = ({id, password}) => axios.post(ACCOUNT_BASE_URL + '/login', {
         username: id,
         password: password,
     }, {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
-        withCredentials: true
+        withCredentials: true,
     });
 
-export const handleSignUP = (submit) => axios.post('/joinProc',
+export const handleSignUP = (submit) => axios.post(ACCOUNT_BASE_URL + '/joinProc',
     submit, {
         headers: {
             'Content-Type': 'application/json',
