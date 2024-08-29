@@ -46,7 +46,7 @@ export default function ListDetail({category, contents}){
         setTitle(contents.title ? contents.title : contents.name)
         setPosterUrl(contents.posterUrl)
 
-        if (contents.reviewSummary.startsWith('총평: ')){
+        if (contents.reviewSummary && contents.reviewSummary.startsWith('총평: ')){
             setReviewSummary(contents.reviewSummary.substring(4));
         } else setReviewSummary(contents.reviewSummary)
 
