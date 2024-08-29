@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import PropTypes from 'prop-types'
 import EmotionGauge from "./card/EmotionGauge"
+import { ThemeContext } from '@/common/Context';
 import { checkLike, handleLikeClick } from '@/utils/like';
 
+import { lightPallete, darkPallete } from "@/assets/pallete";
 import likeIcon from '@/assets/img/like_icon.svg'
 import likeIconFilled from '@/assets/img/like_red.svg'
 import bookmarkIcon from '@/assets/img/bookmark_icon.svg'
@@ -10,6 +12,7 @@ import bookmarkIconFilled from '@/assets/img/bookmark_yellow.svg'
 import robotIcon from '@/assets/img/robot_icon.svg'
 
 export default function ListDetail({category, contents, id}){
+    const { darkMode } = useContext(ThemeContext);
     const [fillLike, setFillLike] = useState(false);
     const [fillBookmark, setFillBookmark] = useState(false);
 
@@ -63,16 +66,17 @@ export default function ListDetail({category, contents, id}){
             setDesc1(contents.foodType)
     }, []);
 
+    const descContainerStyles = { display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center", padding: "1rem", borderRadius: "4px", backgroundColor: darkMode ? darkPallete.lighterBackground : lightPallete.background };
     const posterStyles = { maxWidth: "26rem", minWidth: "18rem", minHeight: "18rem", maxHeight: "24rem", borderRadius: "3px" };
     const btnAreaStyles = { display: 'flex', marginTop: '15px', flexDirection: 'row', alignItems: 'center' };
     const titleStyles = {fontWeight: '600', fontSize: '36px', maxWidth: "24rem", lineHeight: '150%', color: "#111827"}
     const descStyles = { margin: "0.5em 0", maxWidth: "26rem" };
     const summaryTitleStyles = { display: "flex", flexDirection: "row", alignItems: "center", backgroundColor: "#A9EAFF", borderRadius: "5px", padding: "0 20px", width: "fit-content", maxWidth: "100%", marginBottom: "5px" };
-    const reviewBoxStyles = { backgroundColor: "#EFF9FB", padding: "20px", borderRadius: "5px", maxWidth: "70em", lineHeight: "1.6" };
+    const reviewBoxStyles = { backgroundColor: darkMode ? darkPallete.merelyBlue : lightPallete.merelyBlue, padding: "20px", borderRadius: "5px", maxWidth: "70em", lineHeight: "1.6" };
 
     return(
         <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-            <div className="description" style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
+            <div className="description" style={descContainerStyles}>
                 <div><img src={posterUrl} style={posterStyles}/></div>
                 <div style={{margin: "10px 50px", marginRight: "0", width: "50%"}}>
                     <div className="btn-area" style={btnAreaStyles}>

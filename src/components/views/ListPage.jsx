@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
-import ListMovie from "@/components/list/ListMovie"
-import ListPlain from "@/components/list/ListPlain"
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import ListMovie from "@/components/list/ListMovie";
+import ListPlain from "@/components/list/ListPlain";
 import { ThemeContext } from '@/common/Context';
-import { getMovieLists, getHotelLists, getRestaurantLists } from "../../services/listServices"
+import { getMovieLists, getHotelLists, getRestaurantLists } from "../../services/listServices";
 
 import { lightPallete, darkPallete } from "@/assets/pallete";
 import "./ListPage.css"

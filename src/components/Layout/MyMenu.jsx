@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { ThemeContext } from '@/common/Context';
 import './MyMenu.css';
+
 import person from '@/assets/img/person.svg';
 import like from '@/assets/img/like_gray.svg';
 import bookmark from '@/assets/img/bookmark_gray.svg';
