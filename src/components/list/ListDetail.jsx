@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import EmotionGauge from "./card/EmotionGauge"
+import axios from 'axios';
 
 import likeIcon from '@/assets/like_icon.svg'
 import bookmarkIcon from '@/assets/bookmark_icon.svg'
@@ -51,6 +52,33 @@ export default function ListDetail(){
         setDesc2(desc.running_time);
         setDesc3(desc.release_date);
         setDesc4(desc.rating)
+    }, []);
+
+
+    useEffect(() => {
+        // 서버에서 데이터를 받아오는 코드
+        const token = sessionStorage.getItem('token');
+        if (token) {
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        }
+        console.log(token);
+        axios.get('/api/restaurant/test/1') // 서버의 API 엔드포인트로 요청
+            .then(response => {
+                const data = response.data;
+                setLikes(data.likes);
+                setAi_review(data.ai_review === "true");
+                setTitle(data.title);
+                setEmotion_rating(Number(data.emotion_rating));
+                setReview_summary(data.review_summary);
+                // setDesc1(data.genre);
+                setDesc1(data.foodType);
+                setDesc2(data.running_time);
+                setDesc3(data.release_date);
+                setDesc4(data.rating);
+            })
+            .catch(error => {
+                console.error('Error fetching data from server:', error);
+            });
     }, []);
 
     return(

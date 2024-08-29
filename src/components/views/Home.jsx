@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import CategoryLinkButtons from "./CategoryLinkButtons"
+import axios from "axios";
 
 export default function Home(){
     const containerStyle = {
@@ -9,6 +11,14 @@ export default function Home(){
         alignItems: 'center',
         margin: "150px 0"
     }
+
+    useEffect(() => {
+        const token = sessionStorage.getItem('token');
+        if (token) {
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        }
+        console.log(token);
+    }, []);
 
     return(
         <div style={containerStyle}>
