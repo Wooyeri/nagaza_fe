@@ -11,7 +11,7 @@ export default function LikeList() {
     categories.map((category) => {
       getLikeList(category, sessionStorage.getItem('jwtToken'))
       .then(res => {
-        if (res.data && res.data.length > 0) setLikeList([...likeList, res.data]);
+        if (res.status == 200 && res.data && res.data.length > 0) {setLikeList([...likeList, res.data]);}
       })
       .catch(err => console.error(err));
     })

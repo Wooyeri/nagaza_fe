@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import EmotionGauge from './EmotionGauge';
@@ -8,14 +8,34 @@ import likeIconFilled from '@/assets/like_red.svg'
 import bookmarkIcon from '@/assets/bookmark_icon.svg'
 import bookmarkIconFilled from '@/assets/bookmark_yellow.svg'
 import robotIcon from '@/assets/robot_icon.svg'
+import { checkLike, handleLikeClick } from '@/utils/like';
 
 export default function ListMovieCard({id, likeCount, title, posterUrl, cast, reserRate ,emotionRating, aiReview}){
     const navigate = useNavigate();
-    const [filLike, setFillLike] = useState(false);
+    const [fillLike, setFillLike] = useState(false);
     const [fillBookmark, setFillBookmark] = useState(false);
 
-    const handleLikeIcon = () => setFillLike(!filLike);
-    const handleBookmarkIcon = () => setFillBookmark(!fillBookmark);
+    const handleLikeBtn = () => {
+        setFillLike(!fillLike);
+    }
+    const handleBookmarkBtn = () => {
+        setFillBookmark(!fillBookmark);
+    }
+    const handleLikeBtnClick = () => {;
+        handleLikeClick('movie', id).then(data => { if(data) console.log('success!'); });
+    };
+    const handleBookmarkBtnClick = () => {
+        //
+    };
+    const handleCardClick = (e) => {
+        if (e.target.tagName === 'IMG'){
+            e.target.click();
+        } else navigate('/movie/' + id);
+    }
+
+    useEffect(() => {
+        checkLike('movie', id).then(data => {if (typeof(data) == 'boolean') setFillLike(data)});
+    }, [id])
 
     const containerStyles = { minWidth: '500px', maxWidth: '530px', minHeight: '400px', display: 'flex', padding: '1rem 1rem', width: "fit-content", boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2)", borderRadius: "10px", textAlign: 'center', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' };
     const btnContentsStyles = { marginRight: '30px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' };
@@ -25,13 +45,13 @@ export default function ListMovieCard({id, likeCount, title, posterUrl, cast, re
 
     //Todo: 좋아요, 스크랩 반영해서 아이콘 색 바꾸기
     return(
-        <div className="card" style={containerStyles} onClick={() => {navigate('/movie/' + id)}}>
+        <div className="card" style={containerStyles} onClick={handleCardClick}>
             <img src={posterUrl} style={posterStyles}/>
             <div className='btn-contents' style={btnContentsStyles}>
                 <div className="btn-area" style={btnAreaStyles}>
                     <span style={{fontSize: '14px', margin: '0 3px'}}>{likeCount}</span>
-                    <img src={filLike ? likeIconFilled : likeIcon} onMouseOver={handleLikeIcon} onMouseOut={handleLikeIcon} style={{width: '25px', marginRight: '5px', cursor: "pointer"}} />
-                    <img src={fillBookmark ? bookmarkIconFilled : bookmarkIcon} onMouseOver={handleBookmarkIcon} onMouseOut={handleBookmarkIcon} style={{width: '25px', margin: '0 5px', cursor: "pointer"}} />
+                    <img src={fillLike ? likeIconFilled : likeIcon} onClick={handleLikeBtnClick} onMouseOver={handleLikeBtn} onMouseOut={handleLikeBtn} style={{width: '25px', marginRight: '5px', cursor: "pointer"}} />
+                    <img src={fillBookmark ? bookmarkIconFilled : bookmarkIcon} onClick={handleBookmarkBtnClick} onMouseOver={handleBookmarkBtn} onMouseOut={handleBookmarkBtn} style={{width: '25px', margin: '0 5px', cursor: "pointer"}} />
                     {aiReview ? <img src={robotIcon} style={{width: '30px', margin: '0 5px'}}/> : <></>}
                 </div>
                 <div className="contents" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
