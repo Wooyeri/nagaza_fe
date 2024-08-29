@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import "./common/inputForms.css";
 import google from '@/assets/google.svg';
-import { handleSignUP } from '../../services/accountServices';
+import { handleSignUP } from '@/services/accountServices';
 import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
@@ -50,8 +50,7 @@ function SignUp() {
     })
     .then(res => {
       if (res.status == 200) {
-        setErrorMsg();
-        sessionStorage.setItem('jwtToken', (res.headers.authorization).split(' ')[1]);
+        setErrorMsg('');
         navigate('/')
       } else {
         setErrorMsg('회원가입 실패.');

@@ -12,10 +12,10 @@ export const handleLogin = ({id, password}) => axios.post('/login', {
         withCredentials: true
     });
 
-export const handleSignUP = (submit) => axios.post('/login',
+export const handleSignUP = (submit) => axios.post('/joinProc',
     submit, {
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json',
         },
         withCredentials: true
     });
