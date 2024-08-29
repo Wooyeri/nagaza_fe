@@ -1,0 +1,97 @@
+.form-container {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  width: 40%;
+  min-width: 20rem;
+  max-width: 30rem;
+  min-height: 30rem;
+}
+.form-container .forms {
+  margin-bottom: 1.5rem;
+}
+.form-container form h2 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.form-container form p {
+  margin-left: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-group label {
+  margin-left: 1rem;
+}
+.form-group input {
+  width: calc(100% - 1rem);
+  padding: 0.7rem;
+  margin-top: 0.5rem;
+  margin-left: 0.8rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background: #F2F4F8;
+  border-bottom: 1px solid #C1C7CD;
+}
+
+.submit-btn-container{
+  display: flex;
+  justify-content: center;
+}
+.submit-button {
+  width: 95%;
+  padding: 0.75rem;
+  background-color: #1a73e8;
+  color: #ffffff;
+  border: 1px solid #1a73e8;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.submit-button:hover{
+  background-color: #ffffff;
+  color: #1a73e8;
+}
+
+.google-btn {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.google-button { 
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border: 1px solid #1a73e8;
+  background-color: #ffffff;
+  color: #1a73e8;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.link {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.link a {
+  color: #1a73e8;
+  text-decoration: none;
+}
