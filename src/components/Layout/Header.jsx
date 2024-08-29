@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom";
+import MyMenu from "./MyMenu"
 import "./Header.css"
 import "./headerButtons.css"
 import logo from "@/assets/img/logo.svg";
 import avatar from "@/assets/img/avatar.svg"
-import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom";
-import MyMenu from "./MyMenu"
 
 export default function Header(){
     const navigate = useNavigate();
