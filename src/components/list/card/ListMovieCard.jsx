@@ -2,25 +2,21 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import EmotionGauge from './EmotionGauge';
+import { checkLike, handleLikeClick } from '@/utils/like';
 import './card.css'
 import likeIcon from '@/assets/like_icon.svg'
 import likeIconFilled from '@/assets/like_red.svg'
 import bookmarkIcon from '@/assets/bookmark_icon.svg'
 import bookmarkIconFilled from '@/assets/bookmark_yellow.svg'
 import robotIcon from '@/assets/robot_icon.svg'
-import { checkLike, handleLikeClick } from '@/utils/like';
 
 export default function ListMovieCard({id, likeCount, title, posterUrl, cast, reserRate ,emotionRating, aiReview}){
     const navigate = useNavigate();
     const [fillLike, setFillLike] = useState(false);
     const [fillBookmark, setFillBookmark] = useState(false);
 
-    const handleLikeBtn = () => {
-        setFillLike(!fillLike);
-    }
-    const handleBookmarkBtn = () => {
-        setFillBookmark(!fillBookmark);
-    }
+    const handleLikeBtn = () => setFillLike(!fillLike);
+    const handleBookmarkBtn = () => setFillBookmark(!fillBookmark);
     const handleLikeBtnClick = () => {;
         handleLikeClick('movie', id).then(data => { if(data) console.log('success!'); });
     };
