@@ -5,7 +5,6 @@ import EmotionGauge from './EmotionGauge';
 import { checkLike, handleLikeClick } from '@/utils/like';
 
 import './card.css'
-import EmotionGauge from "./EmotionGauge"
 import likeIcon from '@/assets/img/like_icon.svg'
 import likeIconFilled from '@/assets/img/like_red.svg'
 import bookmarkIcon from '@/assets/img/bookmark_icon.svg'
