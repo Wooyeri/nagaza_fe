@@ -1,7 +1,7 @@
 import "./Header.css"
 import "./headerButtons.css"
-import logo from "../../assets/logoipsum.svg"
-import avatar from "../../assets/avatar.svg"
+import logo from "@/assets/logo.svg";
+import avatar from "@/assets/avatar.svg"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import MyMenu from "./MyMenu"
@@ -25,11 +25,11 @@ export default function Header(){
     return(
         <div className="header" style={{height: "4.5rem"}}>
             <div className="logo" style={{cursor: "pointer"}} onClick={() => {navigate('/')}}>
-                <img src={logo} />
+                <img src={logo} style={{width: "13rem"}} />  
             </div>
             <div className="avatar" style={{position: "relative", display: "inline-block"}}>
                 {isLogin ?
-                    <div style={{marginRight: "3rem"}}>
+                    <div style={{marginRight: "1.5rem"}}>
                         <div style={avatarStyles}><img src={avatar} style={{width: "30px", cursor: "pointer"}} onClick={() => {setShowDropdown(!showDropdown)}} /></div>
                         <MyMenu showDropdown={showDropdown} setShowDropdown={setShowDropdown} />
                     </div>
