@@ -89,7 +89,7 @@ export default function ListPage() {
                     <div className="sort-btn" onClick={() => { setSpreadSort(!spreadSort) }} style={{borderColor: darkMode ? darkPallete.grayLine : lightPallete.grayLine }}>
                         <div style={{color: darkMode ? darkPallete.plainText : lightPallete.plainText}}>{sortOption}</div> <img className={`arrow-btn ${spreadSort ? 'open' : ''}`} src={darkMode ? underArrow_dark : underArrow} />
                     </div>
-                    <div style={sortOptionStyles} hidden={spreadSort ? false : true}>
+                    <div style={sortOptionStyles} className={`${darkMode ? 'dark' : 'plain'}`} hidden={spreadSort ? false : true}>
                         <ul className="sort-list" style={{ listStyle: 'none', padding: '0', textAlign: 'center' }}>
                             <li onClick={() => { setSortOption('좋아요 순'); setSpreadSort(false) }}>좋아요 순</li>
                             <li onClick={() => { setSortOption('이름 순'); setSpreadSort(false) }}>이름 순</li>
