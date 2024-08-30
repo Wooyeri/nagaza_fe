@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import EmotionGauge from './EmotionGauge';
 import { checkLike, handleLikeClick } from '@/utils/like';
+import { checkScrape, handleScrapeClick } from "@/utils/scrape";
 
 import './card.css'
 import likeIcon from '@/assets/img/like_icon.svg'
@@ -22,7 +23,7 @@ export default function ListCard({id, category, likeCount, name, posterUrl, opti
         handleLikeClick(category, id).then(data => { if(data) console.log('success!'); });
     };
     const handleBookmarkBtnClick = () => {
-        //
+        handleScrapeClick(category, id).then(data => { if(data) console.log('success!'); });
     };
     const handleCardClick = (e) => {
         if (e.target.tagName === 'IMG'){
@@ -32,6 +33,7 @@ export default function ListCard({id, category, likeCount, name, posterUrl, opti
 
     useEffect(() => {
         checkLike(category, id).then(data => {if (typeof(data) == 'boolean') setFillLike(data)});
+        checkScrape(category, id).then(data => {if (typeof(data) == 'boolean') setFillBookmark(data)});
     }, [category, id])
 
     const containerStyles = { display: 'flex', padding: '1rem 0.3rem', width: "400px", minHeight: "410px", boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2)", borderRadius: "10px", textAlign: 'center', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' };

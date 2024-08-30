@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import EmotionGauge from "./card/EmotionGauge"
 import { ThemeContext } from '@/common/Context';
 import { checkLike, handleLikeClick } from '@/utils/like';
+import { checkScrape, handleScrapeClick } from "@/utils/scrape";
 
 import { lightPallete, darkPallete } from "@/assets/pallete";
 import likeIcon from '@/assets/img/like_icon.svg'
@@ -38,11 +39,12 @@ export default function ListDetail({category, contents, id}){
         handleLikeClick(category, id).then(data => { if(data) console.log('success!'); });
     };
     const handleBookmarkBtnClick = () => {
-        //
+        handleScrapeClick(category, id).then(data => { if(data) console.log('success!'); });
     };
 
     useEffect(() => {
         checkLike(category, id).then(data => {if (typeof(data) == 'boolean') setFillLike(data)});
+        checkScrape(category, id).then(data => {if (typeof(data) == 'boolean') setFillBookmark(data)});
 
         setLikes(contents.likeCount);
         setAiReview(contents.emotionRating != null);

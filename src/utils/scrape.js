@@ -4,7 +4,7 @@ export const checkScrape = (category, itemId) => {
     const token = sessionStorage.getItem('jwtToken');
     return getIsScraped(category, itemId, token)
     .then(res => {
-        console.log(`like ${category}/${itemId}: ${res.data}`);
+        console.log(`scrape: ${category}/${itemId}: ${res.data}`);
         if(res.status == 200 && typeof(res.data) == 'boolean') return res.data;
     })
     .catch(err => console.error(err));

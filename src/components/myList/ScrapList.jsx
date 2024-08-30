@@ -1,25 +1,31 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from "@/common/Context";
 import MyListDetail from './listDetail/MyListDetail';
 
 import { lightPallete, darkPallete } from '@/assets/pallete';
 import './scrapList.css';
 
-import { testHotel } from '../testData';
+import { getScrapeList } from '../../services/scrapeServices';
 
 function ScrapList() {
   const { darkMode } = useContext(ThemeContext);
   const [selected, setSelected] = useState('');
+  const [scrapedItems, setScrapedItems] = useState([]);
   const [label, setLabel] = useState('');
   const folders = [
       { name: 'movie', label: '나의 영화 목록' },
       { name: 'place', label: '나의 장소 목록' },
       { name: 'restaurant', label: '나의 식당 목록' }
   ];
-    //Todo: BE에서 가져오기
-  const listInFolder = [
-    testHotel[0], testHotel[1]
-  ]
+
+  useEffect(() => {
+    if (selected) getScrapeList(selected, sessionStorage.getItem('jwtToken'))
+    .then(res => {
+      if (res.status == 200 && res.data && res.data.length > 0) {setScrapedItems([...scrapedItems, res.data]);}
+    })
+    .catch(err => console.error(err));
+
+  }, [scrapedItems])
 
   return (
     <div style={{width: "70%", display: "flex", flexDirection: "column", alignItems: "center"}}>
@@ -34,7 +40,7 @@ function ScrapList() {
       <div style={{display: "flex", flexDirection: "column"}}>
         <h1 style={{marginBottom: "1rem", marginLeft: "1.3rem", color: darkMode ? darkPallete.plainText : lightPallete.plainText}}>{label}</h1>
         {/*Todo: key를 id로 교체해야함*/}
-        {selected && listInFolder.map((contents, idx) => <MyListDetail key={idx} contents={contents} />)}
+        {selected && scrapedItems && scrapedItems.map((contents, idx) => <MyListDetail key={idx} contents={contents} />)}
         </div>
     </div>
   );

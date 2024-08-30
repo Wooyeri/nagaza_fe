@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import EmotionGauge from './EmotionGauge';
 import { checkLike, handleLikeClick } from '@/utils/like';
+import { checkScrape, handleScrapeClick } from "@/utils/scrape";
 
 import './card.css'
 import likeIcon from '@/assets/img/like_icon.svg'
@@ -22,7 +23,7 @@ export default function ListMovieCard({id, likeCount, title, posterUrl, cast, re
         handleLikeClick('movie', id).then(data => { if(data) console.log('success!'); });
     };
     const handleBookmarkBtnClick = () => {
-        //
+        handleScrapeClick('movie', id).then(data => { if(data) console.log('success!'); });
     };
     const handleCardClick = (e) => {
         if (e.target.tagName === 'IMG'){
@@ -32,6 +33,7 @@ export default function ListMovieCard({id, likeCount, title, posterUrl, cast, re
 
     useEffect(() => {
         checkLike('movie', id).then(data => {if (typeof(data) == 'boolean') setFillLike(data)});
+        checkScrape('movie', id).then(data => {if (typeof(data) == 'boolean') setFillBookmark(data)});
     }, [id])
 
     const containerStyles = { minWidth: '500px', maxWidth: '530px', minHeight: '400px', display: 'flex', padding: '1rem 1rem', width: "fit-content", boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2)", borderRadius: "10px", textAlign: 'center', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' };
