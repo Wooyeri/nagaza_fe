@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import { PropTypes } from 'prop-types';
 import { ThemeContext } from "@/common/Context";
 import Header from "./Header";
-import Footer from "./footer";
+import Footer from "./Footer";
 import { lightPallete, darkPallete } from "@/assets/pallete";
 
 
