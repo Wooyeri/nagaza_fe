@@ -23,7 +23,7 @@ function ScrapList() {
 
   return (
     <div style={{width: "70%", display: "flex", flexDirection: "column", alignItems: "center"}}>
-      <div className="folders" style={{display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr"}}>
+      <div className="folders" style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
           {folders.map((folder) => (
               <div className={`folder ${selected === folder.name? 'selected' : ''} ${darkMode ? 'dark' : 'plain'}`} key={folder.name} onClick={() => {setSelected(folder.name); setLabel(folder.label)}}>
                   <span role="img" aria-label="folder">📁</span>
@@ -32,7 +32,7 @@ function ScrapList() {
           ))}
       </div>
       <div style={{display: "flex", flexDirection: "column"}}>
-        <h1 style={{marginBottom: "1rem", marginLeft: "1.3rem", color: darkMode ? darkPallete.plainText : lightPallete.plainText}}>{label}</h1>
+        {scrapedItems && scrapedItems.length > 0 && <h1 style={{marginBottom: "1rem", marginLeft: "1.3rem", color: darkMode ? darkPallete.plainText : lightPallete.plainText}}>{label}</h1>}
         {/*Todo: key를 id로 교체해야함*/}
         {selected && listInFolder.map((contents, idx) => <MyListDetail key={idx} contents={contents} />)}
         </div>
