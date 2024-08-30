@@ -32,7 +32,7 @@ function ScrapList() {
           ))}
       </div>
       <div style={{display: "flex", flexDirection: "column"}}>
-        {scrapedItems && scrapedItems.length > 0 && <h1 style={{marginBottom: "1rem", marginLeft: "1.3rem", color: darkMode ? darkPallete.plainText : lightPallete.plainText}}>{label}</h1>}
+        {listInFolder && listInFolder.length > 0 && <h1 style={{marginBottom: "1rem", marginLeft: "1.3rem", color: darkMode ? darkPallete.plainText : lightPallete.plainText}}>{label}</h1>}
         {/*Todo: key를 id로 교체해야함*/}
         {selected && listInFolder.map((contents, idx) => <MyListDetail key={idx} contents={contents} />)}
         </div>
