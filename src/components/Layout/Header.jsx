@@ -34,7 +34,7 @@ export default function Header(){
                         <MyMenu showDropdown={showDropdown} setShowDropdown={setShowDropdown} />
                     </div>
                 :<div>
-                    <button className="header-btn signup" onClick={() => {navigate('/signup')}} style={{border: "1px solid #1F1BDA"}}>Sign Up</button>
+                    <button className="header-btn signup" onClick={() => {navigate('/signup')}}>Sign Up</button>
                     <button className="header-btn login" onClick={() => {navigate('/login')}}>Login</button>
                 </div>}
             </div>

@@ -7,6 +7,7 @@
 }
 .header-btn.signup{
     background-color: rgba(0,0,0,0);
+    border: 1px solid #1F1BDA;
     color: #1F1BDA;
 }
 .header-btn.login{
@@ -14,5 +15,6 @@
     border: none;
 }
 .header-btn.signup:hover, .header-btn.login:hover{
-    background-color: #00c3ffb4;
+    color: #5c5af1;
+    border: 1px solid #5c5af1;
 }
